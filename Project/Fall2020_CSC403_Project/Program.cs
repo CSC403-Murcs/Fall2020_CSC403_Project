@@ -11,9 +11,10 @@ namespace Fall2020_CSC403_Project {
     /// </summary>
     [STAThread]
     static void Main() {
-      Application.EnableVisualStyles();
-      Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(new FrmLevel());
+        Application.Run(new IntroAnnimation());
+        //Application.EnableVisualStyles();
+        //Application.SetCompatibleTextRenderingDefault(false);
+        //Application.Run(new FrmLevel());
     }
   }
 }

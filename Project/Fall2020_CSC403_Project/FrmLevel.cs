@@ -123,17 +123,10 @@ namespace Fall2020_CSC403_Project {
     private void Fight(Enemy enemy) {
       player.ResetMoveSpeed();
       player.MoveBack();
+
       // Initialize an instance of the battleground with the enemy you got close with
-      FrmBattle frmBattle = FrmBattle.GetInstance(enemy);
-      //changed here to check whether an user had closed the battle window, and if so, to create a new one --Redmann
-      bool closed = frmBattle.IsDisposed;
-      if (closed) {
-        frmBattle = FrmBattle.GetInstance(enemy);
-        frmBattle.Show();
-      }
-      else { 
-        frmBattle.Show();
-      }
+      frmBattle = FrmBattle.GetInstance(enemy);
+      frmBattle.Show();
 
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();

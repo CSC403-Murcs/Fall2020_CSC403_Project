@@ -52,9 +52,12 @@ namespace Fall2020_CSC403_Project
 		// instantiating the battle ground for the boss fights
 		public static FrmBattle GetInstance(Enemy enemy)
 		{
-			instance = new FrmBattle();
-			instance.enemy = enemy;
-			instance.Setup();
+			if (instance == null)
+			{
+				instance = new FrmBattle();
+				instance.enemy = enemy;
+				instance.Setup();
+			}
 			return instance;
 		}
 

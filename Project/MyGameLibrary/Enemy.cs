@@ -1,5 +1,5 @@
-﻿using System.Drawing;
-using System;
+﻿using System;
+using System.Drawing;
 
 namespace Fall2020_CSC403_Project.code
 {
@@ -64,9 +64,9 @@ namespace Fall2020_CSC403_Project.code
 			int maxHealth = Helpers.Random(player.CombatLevel * 2, player.CombatLevel * 4);
 			SetMaxHealth(maxHealth);
 
-			//			CombatImage = new System.Drawing.Bitmap(Defs.EnemyTypeToImg(Type));
-			//			Graphics graphics = Graphics.FromImage(CombatImage);
-			//			graphics.DrawString(CombatLevel.ToString(), new Font("Arial", 12), Brushes.White, new Point(0, 0));
+//			CombatImage = new System.Drawing.Bitmap(Defs.EnemyTypeToImg(Type));
+//			Graphics graphics = Graphics.FromImage(CombatImage);
+//			graphics.DrawString(CombatLevel.ToString(), new Font("Arial", 12), Brushes.White, new Point(0, 0));
 		}
 	}
 }
