@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using Fall2020_CSC403_Project.Properties;
 
 namespace Fall2020_CSC403_Project
 {
@@ -15,8 +16,8 @@ namespace Fall2020_CSC403_Project
     {
         public IntroAnnimation()
         {
-            //SoundPlayer splayer = new SoundPlayer(@"C:\Users\chrst\OneDrive\Desktop\Fall2020_CSC403_Project\Fall2020_CSC403_Project\coin flip sound effect.wav");
-            //splayer.Play();
+            SoundPlayer dplayer = new SoundPlayer(Resources.coin_sound);
+            dplayer.Play();
             InitializeComponent();
         }
 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using Fall2020_CSC403_Project.Properties;
 
 namespace Fall2020_CSC403_Project
 {
@@ -16,8 +17,8 @@ namespace Fall2020_CSC403_Project
         public WelcomeScreen()
         {
             InitializeComponent();
-            //SoundPlayer splayer = new SoundPlayer(@"C:\Users\chrst\OneDrive\Desktop\Fall2020_CSC403_Project\Fall2020_CSC403_Project\Dark Domination.wav");
-            //splayer.Play();
+            SoundPlayer simpleSound = new SoundPlayer(Resources.dark_domination);
+            simpleSound.Play();
         }
 
         private void WelcomeScreen_Load(object sender, EventArgs e)
