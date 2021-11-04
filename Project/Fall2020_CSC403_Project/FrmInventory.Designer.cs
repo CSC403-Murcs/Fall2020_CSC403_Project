@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.Equip = new System.Windows.Forms.Button();
-            this.getHealth = new System.Windows.Forms.PictureBox();
-            this.getIntelligence = new System.Windows.Forms.PictureBox();
-            this.getPower = new System.Windows.Forms.PictureBox();
+            this.Health = new System.Windows.Forms.PictureBox();
+            this.Intelligence = new System.Windows.Forms.PictureBox();
+            this.Power = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.getHealth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.getIntelligence)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.getPower)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Health)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Intelligence)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Power)).BeginInit();
             this.SuspendLayout();
             // 
             // Equip
@@ -52,35 +52,35 @@
             this.Equip.UseVisualStyleBackColor = false;
             this.Equip.Click += new System.EventHandler(this.button1_Click);
             // 
-            // getHealth
+            // Health
             // 
-            this.getHealth.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.getHealth.Location = new System.Drawing.Point(141, 104);
-            this.getHealth.Name = "getHealth";
-            this.getHealth.Size = new System.Drawing.Size(181, 157);
-            this.getHealth.TabIndex = 1;
-            this.getHealth.TabStop = false;
-            this.getHealth.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.Health.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Health.Location = new System.Drawing.Point(145, 104);
+            this.Health.Name = "Health";
+            this.Health.Size = new System.Drawing.Size(181, 157);
+            this.Health.TabIndex = 1;
+            this.Health.TabStop = false;
+            this.Health.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // getIntelligence
+            // Intelligence
             // 
-            this.getIntelligence.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.getIntelligence.Location = new System.Drawing.Point(896, 104);
-            this.getIntelligence.Name = "getIntelligence";
-            this.getIntelligence.Size = new System.Drawing.Size(181, 157);
-            this.getIntelligence.TabIndex = 2;
-            this.getIntelligence.TabStop = false;
-            this.getIntelligence.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.Intelligence.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Intelligence.Location = new System.Drawing.Point(896, 104);
+            this.Intelligence.Name = "Intelligence";
+            this.Intelligence.Size = new System.Drawing.Size(181, 157);
+            this.Intelligence.TabIndex = 2;
+            this.Intelligence.TabStop = false;
+            this.Intelligence.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // getPower
+            // Power
             // 
-            this.getPower.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.getPower.Location = new System.Drawing.Point(501, 104);
-            this.getPower.Name = "getPower";
-            this.getPower.Size = new System.Drawing.Size(181, 157);
-            this.getPower.TabIndex = 3;
-            this.getPower.TabStop = false;
-            this.getPower.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.Power.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Power.Location = new System.Drawing.Point(501, 104);
+            this.Power.Name = "Power";
+            this.Power.Size = new System.Drawing.Size(181, 157);
+            this.Power.TabIndex = 3;
+            this.Power.TabStop = false;
+            this.Power.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // textBox1
             // 
@@ -115,15 +115,15 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.getPower);
-            this.Controls.Add(this.getIntelligence);
-            this.Controls.Add(this.getHealth);
+            this.Controls.Add(this.Power);
+            this.Controls.Add(this.Intelligence);
+            this.Controls.Add(this.Health);
             this.Controls.Add(this.Equip);
             this.Name = "FrmInventory";
             this.Text = "FrmInventory";
-            ((System.ComponentModel.ISupportInitialize)(this.getHealth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.getIntelligence)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.getPower)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Health)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Intelligence)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Power)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,9 +132,9 @@
         #endregion
 
         private System.Windows.Forms.Button Equip;
-        private System.Windows.Forms.PictureBox getHealth;
-        private System.Windows.Forms.PictureBox getIntelligence;
-        private System.Windows.Forms.PictureBox getPower;
+        private System.Windows.Forms.PictureBox Health;
+        private System.Windows.Forms.PictureBox Intelligence;
+        private System.Windows.Forms.PictureBox Power;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;

@@ -115,9 +115,13 @@ namespace Fall2020_CSC403_Project.code
 		{
 			Health = MaxHealth;
 		}
-		protected void SetMaxHealth(int amount)
+		public void SetMaxHealth(int amount)
 		{
 			MaxHealth = amount;
+		}
+
+		public int GetHealth(){
+			return Health;
 		}
 
 		private void AddSkill(Skill skill)
