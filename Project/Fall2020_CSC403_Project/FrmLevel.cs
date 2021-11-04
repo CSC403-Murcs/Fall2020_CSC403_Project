@@ -201,6 +201,7 @@ namespace Fall2020_CSC403_Project {
         this.frmInventory.Show();
     }
 
+
         // Click on loot, get the loot!
         private void CheetoLoot_Click(object sender, EventArgs e)
         {
@@ -219,6 +220,11 @@ namespace Fall2020_CSC403_Project {
         {
             frmInventory.AddLoot(FinalBossLoot.BackgroundImage, "Intelligence");
             FinalBossLoot.Visible = false;
+
+        private void inGameScore_update_Tick(object sender, EventArgs e)
+        {
+            lblInGameScore.Text = "Score: " + player.playerScore.ToString();
+
         }
     }
 }
