@@ -15,18 +15,21 @@ namespace Fall2020_CSC403_Project
     {
 
         public static FrmInventory instance = null;
-        public Item selectedItem = new Item();
+        public Item selectedItem = new Item("Health");
+        public Item pickedItem = new Item("Health");
+        private Player player;
 
-        public FrmInventory()
+        public FrmInventory(Player player)
         {
+            this.player = player;
             InitializeComponent();
         }
 
         public void Setup()
         {
             // update for this enemy
-            // picEnemy.BackgroundImage = enemy.Img;
-            // picEnemy.Refresh();
+            Health.BackgroundImage = pickedItem.Img;
+            Health.Refresh();
             // BackColor = enemy.Color;
             // picBossBattle.Visible = false;
 
@@ -38,11 +41,12 @@ namespace Fall2020_CSC403_Project
             //UpdateHealthBars();
         }
 
-        public static FrmInventory GetInstance()
+        public static FrmInventory GetInstance(Player player)
         {
+            
             if (instance == null)
             {
-                instance = new FrmInventory();
+                instance = new FrmInventory(player);
                 //instance.Setup();
             }
             return instance;
@@ -56,6 +60,7 @@ namespace Fall2020_CSC403_Project
             switch (itemType) {
                 case "Health":
                     // Increase the health of the player
+                    player.SetMaxHealth(30);
                     break;
                 case "Power":
                     // Increase the damage of the player
@@ -78,12 +83,12 @@ namespace Fall2020_CSC403_Project
             int counter = 0;
             if (counter == 0)
             {
-                getHealth.BackColor = Color.Red;
+                Health.BackColor = Color.Red;
                 counter += 1;
             }
             else
             {
-                getHealth.BackColor = Color.Green;
+                Health.BackColor = Color.Green;
                 counter -= 1;
             }
         }
@@ -99,12 +104,12 @@ namespace Fall2020_CSC403_Project
             int counter = 0;
             if (counter == 0)
             {
-                getHealth.BackColor = Color.Red;
+                Health.BackColor = Color.Red;
                 counter += 1;
             }
             else
             {
-                getHealth.BackColor = Color.Green;
+                Health.BackColor = Color.Green;
                 counter -= 1;
             }
         }
@@ -120,13 +125,29 @@ namespace Fall2020_CSC403_Project
             int counter = 0;
             if (counter == 0)
             {
-                getHealth.BackColor = Color.Red;
+                Health.BackColor = Color.Red;
                 counter += 1;
             }
             else
             {
-                getHealth.BackColor = Color.Green;
+                Health.BackColor = Color.Green;
                 counter -= 1;
+            }
+        }
+
+        public void AddLoot(Image loot, string type){
+            if(type == "Health"){
+                // How to add a picture to each one of the loot?
+                Health.BackgroundImage = loot;
+                Health.Refresh();
+            }
+            else if(type == "Power"){
+                Power.BackgroundImage = loot;
+                Power.Refresh();
+            }
+            else if(type == "Intelligence"){
+                Intelligence.BackgroundImage = loot;
+                Intelligence.Refresh();
             }
         }
     }

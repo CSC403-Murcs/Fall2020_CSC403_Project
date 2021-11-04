@@ -150,8 +150,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+
     <None Include="data\coin_sound.wav" />
     <None Include="data\Dark_Domination.wav" />
+
+    <Content Include="Intelligence.png" />
+    <Content Include="Power.png" />
+    <None Include="data\health.png" />
+    <Content Include="health.png" />
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

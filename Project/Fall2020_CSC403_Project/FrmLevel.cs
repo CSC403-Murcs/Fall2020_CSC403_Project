@@ -51,6 +51,8 @@ namespace Fall2020_CSC403_Project {
 
       Game.player = player;
       timeBegin = DateTime.Now;
+
+      this.frmInventory = FrmInventory.GetInstance(player);
     }
 
     // put the character *under* the picturebox
@@ -126,7 +128,27 @@ namespace Fall2020_CSC403_Project {
 
       // Initialize an instance of the battleground with the enemy you got close with
       frmBattle = FrmBattle.GetInstance(enemy);
+
+      // Showing that loot drops after enemy dies
+      // if enemy health is zero
+      // enemy drops loot -> enemy.dropLoot() -> random item 
+      // show the item on the ground
+
       frmBattle.Show();
+      // there's something wrong with this if statement
+      if (enemy.GetHealth() != 0) {
+        Color color = enemy.Color;
+        if(color == Color.Red){
+            FinalBossLoot.Visible = true;
+        }
+        else if(color == Color.Green){
+            KoolLoot.Visible = true;
+        }
+        else if(color == Color.FromArgb(255, 245, 161)){
+            CheetoLoot.Visible = true;
+        }
+      }
+    
 
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
@@ -154,8 +176,11 @@ namespace Fall2020_CSC403_Project {
           break;
         
         case Keys.I:
-          Open();
+          Open(player);
           break;
+
+        // If the player hits E when they are close to loot
+        // that Item replaces one of the buttons in the inventory
 
         default:
           player.ResetMoveSpeed();
@@ -167,14 +192,41 @@ namespace Fall2020_CSC403_Project {
 
     }
 
-    private void Open()
+    private void Open(Player player)
     {
         // Initialize an instance of the battleground with the enemy you got close with
-        frmInventory = FrmInventory.GetInstance();
+        this.frmInventory = FrmInventory.GetInstance(player);
 
         // FIX: User should be able to open the inventory as many times as possible
-        frmInventory.Show();
+        this.frmInventory.Show();
     }
 
+
+        // Click on loot, get the loot!
+        private void CheetoLoot_Click(object sender, EventArgs e)
+        {
+          // Change the image of each loot
+            frmInventory.AddLoot(CheetoLoot.BackgroundImage, "Health");
+            CheetoLoot.Visible = false;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            frmInventory.AddLoot(KoolLoot.BackgroundImage, "Power");
+            KoolLoot.Visible = false;
+        }
+
+        private void FinalBossLoot_Click(object sender, EventArgs e)
+        {
+            frmInventory.AddLoot(FinalBossLoot.BackgroundImage, "Intelligence");
+            FinalBossLoot.Visible = false;
+
+        }
+
+        private void inGameScore_update_Tick(object sender, EventArgs e)
+        {
+            lblInGameScore.Text = "Score: " + player.playerScore.ToString();
+
+        }
     }
 }
