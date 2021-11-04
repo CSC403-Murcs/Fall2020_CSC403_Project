@@ -107,11 +107,18 @@ namespace Fall2020_CSC403_Project
 			UpdateHealthBars();
 
 			// if one of them is dead then end the combat
-			if (player.Health <= 0 || enemy.Health <= 0)
+			if (player.Health <= 0)
 			{
 				instance = null;
 				Close();
 			}
+			else if(enemy.Health <= 0)
+            {
+				player.playerScore += 1;
+				instance = null;
+				Close();
+
+            }
 		}
 
 		// Apply damage to the enemy

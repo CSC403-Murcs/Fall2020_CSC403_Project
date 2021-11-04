@@ -183,5 +183,9 @@ namespace Fall2020_CSC403_Project {
         frmInventory.Show();
     }
 
+        private void inGameScore_update_Tick(object sender, EventArgs e)
+        {
+            lblInGameScore.Text = "Score: " + player.playerScore.ToString();
+        }
     }
 }
