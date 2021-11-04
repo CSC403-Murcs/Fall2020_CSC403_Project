@@ -149,5 +149,11 @@
       <Name>MyGameLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Intelligence.png" />
+    <Content Include="Power.png" />
+    <None Include="data\health.png" />
+    <Content Include="health.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

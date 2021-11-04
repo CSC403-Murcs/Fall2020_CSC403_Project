@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 
 
 namespace Fall2020_CSC403_Project.code
@@ -7,11 +8,13 @@ namespace Fall2020_CSC403_Project.code
 	public class Item
 	{
 
+		public Image Img { get; set; }
+
 		private string type = null;
 
-		public Item()
+		public Item(string type)
 		{
-
+			this.type = type;
 		}
 
 		public string getType() {
