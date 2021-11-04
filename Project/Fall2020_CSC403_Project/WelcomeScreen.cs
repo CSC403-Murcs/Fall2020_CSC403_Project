@@ -16,8 +16,8 @@ namespace Fall2020_CSC403_Project
         public WelcomeScreen()
         {
             InitializeComponent();
-            SoundPlayer splayer = new SoundPlayer(@"C:\Users\chrst\OneDrive\Desktop\Fall2020_CSC403_Project\Fall2020_CSC403_Project\Dark Domination.wav");
-            splayer.Play();
+            //SoundPlayer splayer = new SoundPlayer(@"C:\Users\chrst\OneDrive\Desktop\Fall2020_CSC403_Project\Fall2020_CSC403_Project\Dark Domination.wav");
+            //splayer.Play();
         }
 
         private void WelcomeScreen_Load(object sender, EventArgs e)

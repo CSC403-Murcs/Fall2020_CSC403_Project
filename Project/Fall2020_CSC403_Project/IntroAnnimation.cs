@@ -15,8 +15,8 @@ namespace Fall2020_CSC403_Project
     {
         public IntroAnnimation()
         {
-            SoundPlayer splayer = new SoundPlayer(@"C:\Users\chrst\OneDrive\Desktop\Fall2020_CSC403_Project\Fall2020_CSC403_Project\coin flip sound effect.wav");
-            splayer.Play();
+            //SoundPlayer splayer = new SoundPlayer(@"C:\Users\chrst\OneDrive\Desktop\Fall2020_CSC403_Project\Fall2020_CSC403_Project\coin flip sound effect.wav");
+            //splayer.Play();
             InitializeComponent();
         }
 

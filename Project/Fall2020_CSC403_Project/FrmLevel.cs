@@ -221,6 +221,8 @@ namespace Fall2020_CSC403_Project {
             frmInventory.AddLoot(FinalBossLoot.BackgroundImage, "Intelligence");
             FinalBossLoot.Visible = false;
 
+        }
+
         private void inGameScore_update_Tick(object sender, EventArgs e)
         {
             lblInGameScore.Text = "Score: " + player.playerScore.ToString();
