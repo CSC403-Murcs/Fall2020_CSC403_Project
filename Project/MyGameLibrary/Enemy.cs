@@ -19,6 +19,7 @@ namespace Fall2020_CSC403_Project.code
 		public Color Color { get; set; }
 
 		public EnemyType Type { get; private set; }
+		public Respawner Respawner { get; set; }
 
 		/// <summary>
 		/// 
@@ -61,12 +62,20 @@ namespace Fall2020_CSC403_Project.code
 			Skills[skillToSet].SetLevel(valToSet);
 
 			// Calculate maxhealth
-			int maxHealth = Helpers.Random(player.CombatLevel * 2, player.CombatLevel * 4);
+			int maxHealth = Helpers.Random(player.MaxHealth/3, player.MaxHealth+1);
 			SetMaxHealth(maxHealth);
 
 //			CombatImage = new System.Drawing.Bitmap(Defs.EnemyTypeToImg(Type));
 //			Graphics graphics = Graphics.FromImage(CombatImage);
 //			graphics.DrawString(CombatLevel.ToString(), new Font("Arial", 12), Brushes.White, new Point(0, 0));
+		}
+
+		public override void Die()
+		{
+			if (Respawner != null)
+			{
+				Respawner.SetRespawn();
+			}
 		}
 	}
 }

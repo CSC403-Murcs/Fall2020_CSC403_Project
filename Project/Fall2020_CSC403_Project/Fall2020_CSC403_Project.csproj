@@ -72,7 +72,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Skill.cs" />
     <Compile Include="WelcomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,15 +149,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-
     <None Include="data\coin_sound.wav" />
     <None Include="data\Dark_Domination.wav" />
-
     <Content Include="Intelligence.png" />
     <Content Include="Power.png" />
     <None Include="data\health.png" />
     <Content Include="health.png" />
-
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
