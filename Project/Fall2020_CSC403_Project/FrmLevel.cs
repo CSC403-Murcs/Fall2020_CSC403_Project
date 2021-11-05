@@ -10,9 +10,11 @@ namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     private Player player;
 
-    private Enemy enemyPoisonPacket;
-    private Enemy bossKoolaid;
-    private Enemy enemyCheeto;
+    private Respawner[] respawners;
+
+//    private Enemy enemyPoisonPacket;
+//    private Enemy bossKoolaid;
+//    private Enemy enemyCheeto;
     private Character[] walls;
 
     private DateTime timeBegin;
@@ -31,17 +33,15 @@ namespace Fall2020_CSC403_Project {
       // create padding for it using the createcollider function in this file
       // make sure the position of the player is set to the picturebox
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), player);
-      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), player);
-      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), player);
 
-      bossKoolaid.Img = picBossKoolAid.BackgroundImage;
-      enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
-      enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+      respawners = new Respawner[3];
+			respawners[0] = new Respawner(picBossKoolAid, new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), player));
+			respawners[1] = new Respawner(picEnemyPoisonPacket, new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), player));
+			respawners[2] = new Respawner(picEnemyCheeto, new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), player));
 
-      bossKoolaid.Color = Color.Red;
-      enemyPoisonPacket.Color = Color.Green;
-      enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+      respawners[0].SetColor(Color.Red);
+      respawners[1].SetColor(Color.Green);
+      respawners[2].SetColor(Color.FromArgb(255, 245, 161));
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -92,15 +92,12 @@ namespace Fall2020_CSC403_Project {
       // Because you have to initialize a new character for each enemy,
       // , you have to pass each one separately to the functions
       // Singleton design pattern
-      if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
+      int idx = HitAChar(player, respawners);
+      if (idx != -1) {
+        Fight(respawners[idx].Enemy);
       }
-      else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
-      }
-      if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
-      }
+
+      UpdateRespawners();
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
@@ -118,8 +115,17 @@ namespace Fall2020_CSC403_Project {
       return hitAWall;
     }
 
-    private bool HitAChar(Character you, Character other) {
-      return you.Collider.Intersects(other.Collider);
+    private int HitAChar(Character you, Respawner[] other) {
+      for (int i = 0; i < other.Length; i++) {
+        // Enemy already dead
+        if (!other[i].IsActive) {
+          continue;
+        }
+        if (you.Collider.Intersects(other[i].Enemy.Collider)) {
+          return i;
+        }
+      }
+      return -1;
     }
 
     private void Fight(Enemy enemy) {
@@ -149,8 +155,8 @@ namespace Fall2020_CSC403_Project {
         }
       }
     
-
-      if (enemy == bossKoolaid) {
+      // KoolAid man
+      if (enemy == respawners[2].Enemy) {
         frmBattle.SetupForBossBattle();
       }
     }
@@ -228,5 +234,11 @@ namespace Fall2020_CSC403_Project {
             lblInGameScore.Text = "Score: " + player.playerScore.ToString();
 
         }
+      private void UpdateRespawners() {
+        for (int i = 0; i < respawners.Length; i++) {
+          respawners[i].Update();
+        }
+      }
     }
+
 }

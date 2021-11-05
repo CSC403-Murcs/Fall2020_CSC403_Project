@@ -147,7 +147,7 @@ namespace Fall2020_CSC403_Project.code
 
 		public int AttackStrength(string skillType)
 		{
-			int currLevel = Skills[skillType].Level / 4 + 1;
+			int currLevel = Skills[skillType].Level / 3 + 1;
 			int bonus = EquipmentBonus(Skills[skillType]);
 
 			// Level 1 skills need a little nudge
@@ -164,6 +164,12 @@ namespace Fall2020_CSC403_Project.code
 		public virtual int EquipmentBonus(Skill skill)
 		{
 			return 0;
+		}
+
+		// To be overridden by the Enemy class
+		public virtual void Die()
+		{
+			// Do nothing
 		}
 	}
 }

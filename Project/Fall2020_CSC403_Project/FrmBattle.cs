@@ -103,7 +103,6 @@ namespace Fall2020_CSC403_Project
 			// if enemy is alive
 			if (enemy.Health > 0)
 			{
-
 				enemy.OnAttack(Defs.AttackTypeToString(atktype));
 			}
 
@@ -118,23 +117,21 @@ namespace Fall2020_CSC403_Project
 			else if(enemy.Health <= 0)
             {
 				player.playerScore += 1;
+				enemy.Die();
 				instance = null;
 				Close();
-
-            }
+			}
 		}
 
 		// Apply damage to the enemy
 		private void EnemyDamage(string skillType, int amount)
 		{
-			//			Console.WriteLine("Enemy hurt {0}", amount);
 			enemy.Damage(amount);
 		}
 
 		// Apply damage to the player
 		private void PlayerDamage(string skillType, int amount)
 		{
-			//      Console.WriteLine("Player hurt {0}", amount);
 			player.Damage(amount);
 		}
 
