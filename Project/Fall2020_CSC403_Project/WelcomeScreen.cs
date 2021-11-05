@@ -40,10 +40,10 @@ namespace Fall2020_CSC403_Project
 
 		private void button3_Click(object sender, EventArgs e)
 		{
-			FrmLevel fl = new FrmLevel();
-			fl.Show();
-			fl.FormClosed += fl.OnFormClosed;
-			fl.backgroundsound = mysound;
+			frm = new FrmLevel();
+			frm.Show();
+			frm.FormClosed += frm.OnFormClosed;
+			frm.backgroundsound = mysound;
 			Close();
 			//Application.EnableVisualStyles();
 			//Application.SetCompatibleTextRenderingDefault(false);
