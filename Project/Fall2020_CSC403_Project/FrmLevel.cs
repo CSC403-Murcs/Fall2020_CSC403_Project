@@ -5,6 +5,7 @@ using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
@@ -20,6 +21,7 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
     private FrmInventory frmInventory;
+    public SoundPlayer backgroundsound;
 
     public FrmLevel() {
       InitializeComponent();
@@ -239,6 +241,12 @@ namespace Fall2020_CSC403_Project {
           respawners[i].Update();
         }
       }
+      public void OnFormClosed(object sender, FormClosedEventArgs e) {
+        // Stop the timers
+        tmrPlayerMove.Stop();
+        tmrUpdateInGameTime.Stop();
+        inGameScore_update.Stop();
+        backgroundsound.Stop();
+      }
     }
-
 }
