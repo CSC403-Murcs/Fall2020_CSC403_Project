@@ -164,6 +164,10 @@ namespace Fall2020_CSC403_Project {
           Open();
           break;
 
+        case Keys.K:
+          player.sneak();
+          break;
+
         default:
           player.ResetMoveSpeed();
           break;
