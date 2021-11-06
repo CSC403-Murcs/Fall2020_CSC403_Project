@@ -181,6 +181,9 @@ namespace Fall2020_CSC403_Project {
 
         // If the player hits E when they are close to loot
         // that Item replaces one of the buttons in the inventory
+        case Keys.K:
+          player.sneak();
+          break;
 
         default:
           player.ResetMoveSpeed();

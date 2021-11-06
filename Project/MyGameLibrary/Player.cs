@@ -8,6 +8,7 @@ namespace Fall2020_CSC403_Project.code {
   public class Player : BattleCharacter {
 
     Inventory inventory;
+    public int noticeThreshold = 13;
 
     public Player(Vector2 initPos, Collider collider) : base(initPos, collider) {
       AttackEvent += GainExperience;
@@ -43,6 +44,10 @@ namespace Fall2020_CSC403_Project.code {
     // Enable the player to use an item from the inventory
     public void useItemFromInventory(Item item){
 
+    }
+
+    public void sneak() { 
+        noticeThreshold = 17;
     }
 
   }

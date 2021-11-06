@@ -21,5 +21,27 @@ namespace Fall2020_CSC403_Project.code {
     public bool Intersects(Collider c) {
       return rect.IntersectsWith(c.rect);
     }
-  }
+    public double noticeRadius() { 
+      double radius = Math.Sqrt(rect.X * rect.X + rect.Y * rect.Y);
+      return radius;
+    }
+
+    public double calculateDistance(Player p) { 
+      double distance = Math.Sqrt((p.Collider.rect.X - rect.X)*(p.Collider.rect.X - rect.X) + (p.Collider.rect.Y - rect.Y)*(p.Collider.rect.Y - rect.Y));
+      return distance;
+    }
+    public bool notices(Player p)
+    {
+        bool noticed = false;
+        if (noticeRadius() > calculateDistance(p))
+        {
+            Random rng = new Random();
+            int val = rng.Next(1, 20);
+            if (val > p.noticeThreshold) { 
+                noticed = true;     
+            }
+        }
+        return noticed;
+    }
+    }
 }
