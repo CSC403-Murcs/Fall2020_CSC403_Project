@@ -14,11 +14,13 @@ namespace Fall2020_CSC403_Project
 {
     public partial class IntroAnnimation : Form
     {
+        private SoundPlayer SoundPlayer;
         public IntroAnnimation()
         {
-            SoundPlayer dplayer = new SoundPlayer(Resources.coin_sound);
-            dplayer.Play();
+            SoundPlayer = new SoundPlayer(Resources.coin_sound);
+            SoundPlayer.Play();
             InitializeComponent();
+            this.FormClosed += OnFormClosed;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -32,15 +34,22 @@ namespace Fall2020_CSC403_Project
             else
             {
                 timer1.Stop();
-                Hide();
                 WelcomeScreen fm = new WelcomeScreen();
                 fm.Show();
+                fm.Anim = this;
+                Hide();
             }
         }
 
         private void IntroAnnimation_Load(object sender, EventArgs e)
         {
             timer1.Start();
+        }
+
+        private void OnFormClosed(object sender, FormClosedEventArgs e)
+        {
+            SoundPlayer.Stop();
+            SoundPlayer.Dispose();
         }
     }
 }

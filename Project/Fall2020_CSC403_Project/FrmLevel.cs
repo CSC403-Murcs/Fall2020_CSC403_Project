@@ -22,6 +22,7 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle frmBattle;
     private FrmInventory frmInventory;
     public SoundPlayer backgroundsound;
+        public IntroAnnimation Anim;
 
     public FrmLevel() {
       InitializeComponent();
@@ -245,11 +246,18 @@ namespace Fall2020_CSC403_Project {
         }
       }
       public void OnFormClosed(object sender, FormClosedEventArgs e) {
-        // Stop the timers
-        tmrPlayerMove.Stop();
-        tmrUpdateInGameTime.Stop();
-        inGameScore_update.Stop();
-        backgroundsound.Stop();
+            // Stop the timers
+            tmrPlayerMove.Stop();
+            tmrUpdateInGameTime.Stop();
+            inGameScore_update.Stop();
+            tmrPlayerMove.Dispose();
+            tmrUpdateInGameTime.Dispose();
+            inGameScore_update.Dispose();
+
+            if (Anim != null)
+            {
+                Anim.Close();
+            }
       }
     }
 }

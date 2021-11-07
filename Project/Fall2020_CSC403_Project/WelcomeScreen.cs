@@ -15,7 +15,8 @@ namespace Fall2020_CSC403_Project
 	public partial class WelcomeScreen : Form
 	{
 		SoundPlayer mysound;
-		FrmLevel frm;
+		bool opened;
+		public IntroAnnimation Anim;
 		public WelcomeScreen()
 		{
 			InitializeComponent();
@@ -40,10 +41,11 @@ namespace Fall2020_CSC403_Project
 
 		private void button3_Click(object sender, EventArgs e)
 		{
-			frm = new FrmLevel();
+			FrmLevel frm = new FrmLevel();
 			frm.Show();
 			frm.FormClosed += frm.OnFormClosed;
-			frm.backgroundsound = mysound;
+			frm.Anim = Anim;
+			opened = true;
 			Close();
 			//Application.EnableVisualStyles();
 			//Application.SetCompatibleTextRenderingDefault(false);
@@ -58,9 +60,11 @@ namespace Fall2020_CSC403_Project
 		private void OnFormClosed(object sender, FormClosedEventArgs e)
 		{
             // If the form is closed and there's no level to load, stop it
-			if (frm == null)
+			if (!opened)
 			{
 				mysound.Stop();
+				mysound.Dispose();
+				Anim.Close();
 			}
 		}
 	}
