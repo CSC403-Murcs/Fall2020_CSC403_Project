@@ -111,6 +111,8 @@ namespace Fall2020_CSC403_Project
 			// if one of them is dead then end the combat
 			if (player.Health <= 0)
 			{
+				GameOver go1 = new GameOver();
+				go1.Show();
 				instance = null;
 				Close();
 			}

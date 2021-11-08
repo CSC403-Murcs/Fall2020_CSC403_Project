@@ -42,6 +42,8 @@ namespace Fall2020_CSC403_Project
 		{
 			frm = new FrmLevel();
 			frm.Show();
+			GameInstructions gi = new GameInstructions();
+			gi.Show();
 			frm.FormClosed += frm.OnFormClosed;
 			frm.backgroundsound = mysound;
 			Close();
