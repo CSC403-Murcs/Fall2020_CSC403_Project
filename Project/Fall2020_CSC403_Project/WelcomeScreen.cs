@@ -43,6 +43,8 @@ namespace Fall2020_CSC403_Project
 		{
 			FrmLevel frm = new FrmLevel();
 			frm.Show();
+			GameInstructions gi = new GameInstructions();
+			gi.Show();
 			frm.FormClosed += frm.OnFormClosed;
 			frm.Anim = Anim;
 			opened = true;
