@@ -158,7 +158,7 @@ namespace Fall2020_CSC403_Project {
       }
     
       // KoolAid man
-      if (enemy == respawners[2].Enemy) {
+      if (enemy == respawners[0].Enemy) {
         frmBattle.SetupForBossBattle();
       }
     }
