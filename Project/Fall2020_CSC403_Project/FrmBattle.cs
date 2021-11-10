@@ -75,11 +75,6 @@ namespace Fall2020_CSC403_Project
 			lblEnemyHealthFull.Text = enemy.Health.ToString();
 		}
 
-		private void btnUseItem_Click(object sender, EventArgs e)
-		{
-			// TODO; Parsa
-		}
-
 		private void btnAttack_ClickMelee(object sender, EventArgs e)
 		{
 			btnAttack_Click(AttackType.ATTACK_TYPE_MELEE, sender, e);
