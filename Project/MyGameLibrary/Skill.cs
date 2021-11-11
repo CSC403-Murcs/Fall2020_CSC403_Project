@@ -11,6 +11,12 @@ namespace Fall2020_CSC403_Project.code
 		public int Experience { get; private set; }
 		public int MaxExperience { get; private set; }
 		public int Bonus { get; set; }
+
+		static int CalcExp(int level)
+		{
+			return (int)System.Math.Sqrt((float)level) * 20;
+		}
+
 		public Skill(string name)
 		{
 			Name = name;
@@ -18,8 +24,8 @@ namespace Fall2020_CSC403_Project.code
 			CurrentLevel = 1;
 			MaxLevel = 99;
 			Experience = 0;
-			MaxExperience = (int)System.Math.Sqrt((float)Level) * 50;
 			Bonus = 0;
+			MaxExperience = CalcExp(Level);
 		}
 
 		public void AddExperience(int exp)
@@ -41,14 +47,14 @@ namespace Fall2020_CSC403_Project.code
 		{
 			Level++;
 			CurrentLevel++;
-			MaxExperience = (int)System.Math.Sqrt((float)Level) * 50;
+			MaxExperience = CalcExp(Level);
 		}
 
 		public void SetLevel(int level)
 		{
 			Level = level;
 			CurrentLevel = level;
-			MaxExperience = (int)System.Math.Sqrt((float)Level) * 50;
+			MaxExperience = CalcExp(Level);
 		}
 		public void SetCurrentLevel(int level)
 		{

@@ -63,6 +63,8 @@ namespace Fall2020_CSC403_Project.code
 					return "";
 			}
 		}
+
+		public const double RESPAWN_TIME = 10.0;
 	}
 
 	public static class Helpers

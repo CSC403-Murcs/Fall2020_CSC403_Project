@@ -38,6 +38,9 @@ namespace Fall2020_CSC403_Project.code {
       int hpexp = damage;
       Skills[Defs.SKILL_HP].AddExperience(hpexp);
     }
+    // Enable the player to use an item from the inventory
+    public void useItemFromInventory(Item item){
 
-  }
+    }
+    }
 }

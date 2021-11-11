@@ -28,6 +28,11 @@ namespace Fall2020_CSC403_Project
 			picBossBattle.Visible = false;
 
 			// Observer pattern
+			if (!enemy.Collider.notices(player))
+			{
+				player.AttackEvent += EnemyDamage;
+				player.noticeThreshold = 20;
+			}
 			enemy.AttackEvent += PlayerDamage;
 			player.AttackEvent += EnemyDamage;
 
@@ -52,12 +57,9 @@ namespace Fall2020_CSC403_Project
 		// instantiating the battle ground for the boss fights
 		public static FrmBattle GetInstance(Enemy enemy)
 		{
-			if (instance == null)
-			{
-				instance = new FrmBattle();
-				instance.enemy = enemy;
-				instance.Setup();
-			}
+			instance = new FrmBattle();
+			instance.enemy = enemy;
+			instance.Setup();
 			return instance;
 		}
 
@@ -73,11 +75,6 @@ namespace Fall2020_CSC403_Project
 
 			lblPlayerHealthFull.Text = player.Health.ToString();
 			lblEnemyHealthFull.Text = enemy.Health.ToString();
-		}
-
-		private void btnUseItem_Click(object sender, EventArgs e)
-		{
-			// TODO; Parsa
 		}
 
 		private void btnAttack_ClickMelee(object sender, EventArgs e)
@@ -103,7 +100,6 @@ namespace Fall2020_CSC403_Project
 			// if enemy is alive
 			if (enemy.Health > 0)
 			{
-
 				enemy.OnAttack(Defs.AttackTypeToString(atktype));
 			}
 
@@ -112,29 +108,29 @@ namespace Fall2020_CSC403_Project
 			// if one of them is dead then end the combat
 			if (player.Health <= 0)
 			{
+				GameOver go1 = new GameOver();
+				go1.Show();
 				instance = null;
 				Close();
 			}
 			else if(enemy.Health <= 0)
             {
 				player.playerScore += 1;
+				enemy.Die();
 				instance = null;
 				Close();
-
-            }
+			}
 		}
 
 		// Apply damage to the enemy
 		private void EnemyDamage(string skillType, int amount)
 		{
-			//			Console.WriteLine("Enemy hurt {0}", amount);
 			enemy.Damage(amount);
 		}
 
 		// Apply damage to the player
 		private void PlayerDamage(string skillType, int amount)
 		{
-			//      Console.WriteLine("Player hurt {0}", amount);
 			player.Damage(amount);
 		}
 
