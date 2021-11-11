@@ -22,7 +22,8 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle frmBattle;
     private FrmInventory frmInventory;
     public SoundPlayer backgroundsound;
-        public IntroAnnimation Anim;
+    public IntroAnnimation Anim;
+    private bool sneaking = false;
 
     public FrmLevel() {
       InitializeComponent();
@@ -84,7 +85,7 @@ namespace Fall2020_CSC403_Project {
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       // move player
       player.Move();
-
+      
       // check collision with walls
       if (HitAWall(player)) {
         player.MoveBack();
@@ -118,11 +119,14 @@ namespace Fall2020_CSC403_Project {
       return hitAWall;
     }
 
-    private int HitAChar(Character you, Respawner[] other) {
+    private int HitAChar(Player you, Respawner[] other) {
       for (int i = 0; i < other.Length; i++) {
         // Enemy already dead
         if (!other[i].IsActive) {
           continue;
+        }
+        if (other[i].Collider.notices(you)) { 
+          return i;        
         }
         if (you.Collider.Intersects(other[i].Enemy.Collider)) {
           return i;
@@ -145,6 +149,7 @@ namespace Fall2020_CSC403_Project {
 
       frmBattle.Show();
       // there's something wrong with this if statement
+
       if (enemy.GetHealth() != 0) {
         Color color = enemy.Color;
         if(color == Color.Red){
@@ -191,7 +196,13 @@ namespace Fall2020_CSC403_Project {
         // If the player hits E when they are close to loot
         // that Item replaces one of the buttons in the inventory
         case Keys.K:
-          player.sneak();
+          player.sneak(sneaking);
+          sneaking = true;
+          break;
+
+        case Keys.J:
+          player.standUp(sneaking);
+          sneaking=false;
           break;
 
         default:
