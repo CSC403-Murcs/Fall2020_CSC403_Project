@@ -38,7 +38,7 @@ namespace Fall2020_CSC403_Project
         private void button3_Click(object sender, EventArgs e)
         {
             Hide();
-            FrmLevel fl = new FrmLevel();  
+            xs fl = new xs();  
             fl.Show();
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);

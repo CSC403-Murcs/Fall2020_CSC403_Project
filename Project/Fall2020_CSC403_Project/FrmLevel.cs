@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
-  public partial class FrmLevel : Form {
+  public partial class xs : Form {
     private Player player;
 
     private Enemy enemyPoisonPacket;
@@ -19,7 +19,7 @@ namespace Fall2020_CSC403_Project {
     private FrmBattle frmBattle;
     private FrmInventory frmInventory;
 
-    public FrmLevel() {
+    public xs() {
       InitializeComponent();
     }
 
@@ -212,13 +212,13 @@ namespace Fall2020_CSC403_Project {
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            frmInventory.AddLoot(KoolLoot.BackgroundImage, "Power");
+            frmInventory.AddLoot(KoolLoot.BackgroundImage, "Melee");
             KoolLoot.Visible = false;
         }
 
         private void FinalBossLoot_Click(object sender, EventArgs e)
         {
-            frmInventory.AddLoot(FinalBossLoot.BackgroundImage, "Intelligence");
+            frmInventory.AddLoot(FinalBossLoot.BackgroundImage, "Magic");
             FinalBossLoot.Visible = false;
 
         }
@@ -226,7 +226,32 @@ namespace Fall2020_CSC403_Project {
         private void inGameScore_update_Tick(object sender, EventArgs e)
         {
             lblInGameScore.Text = "Score: " + player.playerScore.ToString();
+            Console.WriteLine(player.AttackStrength(Defs.AttackTypeToString(AttackType.ATTACK_TYPE_RANGED)));
+            Console.WriteLine(" " + player.AttackStrength(Defs.AttackTypeToString(AttackType.ATTACK_TYPE_MAGIC)));
+            ;
+        }
 
+        private void health_update_Tick(object sender, EventArgs e)
+        {
+            InGameHealth.Text = "Health: " + player.Health;
+        }
+
+        private void melee_update_tick_Tick(object sender, EventArgs e)
+        {
+        
+            Console.WriteLine(player.AttackStrength(Defs.AttackTypeToString(AttackType.ATTACK_TYPE_MELEE)));
+
+            InGamePower.Text = "Melee: " + player.AttackStrength(Defs.AttackTypeToString(AttackType.ATTACK_TYPE_MELEE)).ToString();
+        }
+
+        private void ranged_update_Tick(object sender, EventArgs e)
+        {
+            InGameRanged.Text = "Ranged: " + player.AttackStrength(Defs.AttackTypeToString(AttackType.ATTACK_TYPE_RANGED)).ToString();
+        }
+
+        private void magic_update_Tick_1(object sender, EventArgs e)
+        {
+            InGameMagic.Text = "Magic: " + player.AttackStrength(Defs.AttackTypeToString(AttackType.ATTACK_TYPE_MAGIC)).ToString();
         }
     }
 }

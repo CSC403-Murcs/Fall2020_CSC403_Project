@@ -1,7 +1,7 @@
 ﻿// The GUI initializer for the game envrionment/level
 
 namespace Fall2020_CSC403_Project {
-  partial class FrmLevel {
+  partial class xs {
     /// <summary>
     /// Required designer variable.
     /// </summary>
@@ -26,7 +26,7 @@ namespace Fall2020_CSC403_Project {
     /// </summary>
     private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xs));
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
@@ -52,6 +52,15 @@ namespace Fall2020_CSC403_Project {
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.lblInGameScore = new System.Windows.Forms.Label();
             this.inGameScore_update = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.InGamePower = new System.Windows.Forms.Label();
+            this.InGameRanged = new System.Windows.Forms.Label();
+            this.InGameMagic = new System.Windows.Forms.Label();
+            this.health_update = new System.Windows.Forms.Timer(this.components);
+            this.InGameHealth = new System.Windows.Forms.Label();
+            this.melee_update_tick = new System.Windows.Forms.Timer(this.components);
+            this.ranged_update = new System.Windows.Forms.Timer(this.components);
+            this.magic_update = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.FinalBossLoot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KoolLoot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CheetoLoot)).BeginInit();
@@ -104,6 +113,7 @@ namespace Fall2020_CSC403_Project {
             this.FinalBossLoot.BackColor = System.Drawing.Color.Transparent;
             this.FinalBossLoot.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Intelligence;
             this.FinalBossLoot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.FinalBossLoot.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FinalBossLoot.Location = new System.Drawing.Point(1901, 505);
             this.FinalBossLoot.Margin = new System.Windows.Forms.Padding(6);
             this.FinalBossLoot.Name = "FinalBossLoot";
@@ -118,6 +128,7 @@ namespace Fall2020_CSC403_Project {
             this.KoolLoot.BackColor = System.Drawing.Color.Transparent;
             this.KoolLoot.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Power;
             this.KoolLoot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.KoolLoot.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KoolLoot.Location = new System.Drawing.Point(354, 344);
             this.KoolLoot.Margin = new System.Windows.Forms.Padding(6);
             this.KoolLoot.Name = "KoolLoot";
@@ -132,6 +143,7 @@ namespace Fall2020_CSC403_Project {
             this.CheetoLoot.BackColor = System.Drawing.Color.Transparent;
             this.CheetoLoot.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.health;
             this.CheetoLoot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CheetoLoot.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CheetoLoot.Image = global::Fall2020_CSC403_Project.Properties.Resources.health;
             this.CheetoLoot.Location = new System.Drawing.Point(1595, 957);
             this.CheetoLoot.Margin = new System.Windows.Forms.Padding(6);
@@ -364,13 +376,98 @@ namespace Fall2020_CSC403_Project {
             this.inGameScore_update.Enabled = true;
             this.inGameScore_update.Tick += new System.EventHandler(this.inGameScore_update_Tick);
             // 
-            // FrmLevel
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(30, 124);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 25);
+            this.label1.TabIndex = 21;
+            // 
+            // InGamePower
+            // 
+            this.InGamePower.AutoSize = true;
+            this.InGamePower.BackColor = System.Drawing.Color.Black;
+            this.InGamePower.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InGamePower.ForeColor = System.Drawing.Color.White;
+            this.InGamePower.Location = new System.Drawing.Point(331, 1262);
+            this.InGamePower.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.InGamePower.Name = "InGamePower";
+            this.InGamePower.Size = new System.Drawing.Size(128, 36);
+            this.InGamePower.TabIndex = 23;
+            this.InGamePower.Text = "Melee: 0";
+            // 
+            // InGameRanged
+            // 
+            this.InGameRanged.AutoSize = true;
+            this.InGameRanged.BackColor = System.Drawing.Color.Black;
+            this.InGameRanged.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InGameRanged.ForeColor = System.Drawing.Color.White;
+            this.InGameRanged.Location = new System.Drawing.Point(471, 1262);
+            this.InGameRanged.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.InGameRanged.Name = "InGameRanged";
+            this.InGameRanged.Size = new System.Drawing.Size(153, 36);
+            this.InGameRanged.TabIndex = 24;
+            this.InGameRanged.Text = "Ranged: 0";
+            // 
+            // InGameMagic
+            // 
+            this.InGameMagic.AutoSize = true;
+            this.InGameMagic.BackColor = System.Drawing.Color.Black;
+            this.InGameMagic.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InGameMagic.ForeColor = System.Drawing.Color.White;
+            this.InGameMagic.Location = new System.Drawing.Point(636, 1262);
+            this.InGameMagic.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.InGameMagic.Name = "InGameMagic";
+            this.InGameMagic.Size = new System.Drawing.Size(128, 36);
+            this.InGameMagic.TabIndex = 25;
+            this.InGameMagic.Text = "Magic: 0";
+            // 
+            // health_update
+            // 
+            this.health_update.Enabled = true;
+            this.health_update.Tick += new System.EventHandler(this.health_update_Tick);
+            // 
+            // InGameHealth
+            // 
+            this.InGameHealth.AutoSize = true;
+            this.InGameHealth.BackColor = System.Drawing.Color.Black;
+            this.InGameHealth.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InGameHealth.ForeColor = System.Drawing.Color.White;
+            this.InGameHealth.Location = new System.Drawing.Point(169, 1262);
+            this.InGameHealth.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.InGameHealth.Name = "InGameHealth";
+            this.InGameHealth.Size = new System.Drawing.Size(150, 36);
+            this.InGameHealth.TabIndex = 22;
+            this.InGameHealth.Text = "Health: 20";
+            // 
+            // melee_update_tick
+            // 
+            this.melee_update_tick.Enabled = true;
+            this.melee_update_tick.Tick += new System.EventHandler(this.melee_update_tick_Tick);
+            // 
+            // ranged_update
+            // 
+            this.ranged_update.Enabled = true;
+            this.ranged_update.Tick += new System.EventHandler(this.ranged_update_Tick);
+            // 
+            // magic_update
+            // 
+            this.magic_update.Enabled = true;
+            this.magic_update.Tick += new System.EventHandler(this.magic_update_Tick_1);
+            // 
+            // xs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(2352, 1396);
+            this.Controls.Add(this.InGameMagic);
+            this.Controls.Add(this.InGameRanged);
+            this.Controls.Add(this.InGamePower);
+            this.Controls.Add(this.InGameHealth);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.FinalBossLoot);
             this.Controls.Add(this.KoolLoot);
             this.Controls.Add(this.CheetoLoot);
@@ -395,7 +492,7 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.picPlayer);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(12);
-            this.Name = "FrmLevel";
+            this.Name = "xs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Explore";
             this.Load += new System.EventHandler(this.FrmLevel_Load);
@@ -455,6 +552,15 @@ namespace Fall2020_CSC403_Project {
 
         private System.Windows.Forms.Label lblInGameScore;
         private System.Windows.Forms.Timer inGameScore_update;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label InGamePower;
+        private System.Windows.Forms.Label InGameRanged;
+        private System.Windows.Forms.Label InGameMagic;
+        private System.Windows.Forms.Timer health_update;
+        private System.Windows.Forms.Label InGameHealth;
+        private System.Windows.Forms.Timer melee_update_tick;
+        private System.Windows.Forms.Timer ranged_update;
+        private System.Windows.Forms.Timer magic_update;
     }
 }
 

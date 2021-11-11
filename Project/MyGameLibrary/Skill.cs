@@ -10,6 +10,7 @@ namespace Fall2020_CSC403_Project.code
 		public int MaxLevel { get; private set; }
 		public int Experience { get; private set; }
 		public int MaxExperience { get; private set; }
+		public int Bonus { get; set; }
 		public Skill(string name)
 		{
 			Name = name;
@@ -18,6 +19,7 @@ namespace Fall2020_CSC403_Project.code
 			MaxLevel = 99;
 			Experience = 0;
 			MaxExperience = (int)System.Math.Sqrt((float)Level) * 50;
+			Bonus = 0;
 		}
 
 		public void AddExperience(int exp)

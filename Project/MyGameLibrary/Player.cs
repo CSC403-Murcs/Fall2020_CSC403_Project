@@ -14,19 +14,18 @@ namespace Fall2020_CSC403_Project.code {
       this.inventory = new Inventory();
     }
 
-    // Enable the player to add items to the inventory
-    public void addItemToInventory(Item item){
-      inventory.addItem(item);
-    }
-    
-    // Enable the player to remove an item from the inventory
-    public void removeItemFromInventory(Item item){
-      
-    }
-
     public override int EquipmentBonus(Skill skill)
     {
-      return 0;
+        int bonus = 0;
+        
+        if (skill.Name == "Melee") {
+            bonus = 2;
+        }
+        else if (skill.Name == "Magic") {
+            bonus = 4;
+        }
+
+        return bonus;
     }
 
     private void GainExperience(string skillType, int damage)
@@ -38,11 +37,6 @@ namespace Fall2020_CSC403_Project.code {
       // Globally increment health exp
       int hpexp = damage;
       Skills[Defs.SKILL_HP].AddExperience(hpexp);
-    }
-
-    // Enable the player to use an item from the inventory
-    public void useItemFromInventory(Item item){
-
     }
 
   }

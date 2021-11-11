@@ -13,6 +13,10 @@ namespace Fall2020_CSC403_Project.code
 {
 	public class BattleCharacter : Character
 	{
+
+		int PlayerHealth = 0;
+
+
 		// Walk over the health skill to keep everyone sane
 		// This way we can use the same code that's provide but wrap over the health skill
 		public int Health
@@ -66,6 +70,7 @@ namespace Fall2020_CSC403_Project.code
 
 			// Default health to 20, will be changed later
 			SetMaxHealth(20);
+			this.PlayerHealth = 20;
 		}
 
 		public void OnAttack(string skillType)
@@ -148,7 +153,7 @@ namespace Fall2020_CSC403_Project.code
 		public int AttackStrength(string skillType)
 		{
 			int currLevel = Skills[skillType].Level / 4 + 1;
-			int bonus = EquipmentBonus(Skills[skillType]);
+			int bonus = Skills[skillType].Bonus;
 
 			// Level 1 skills need a little nudge
 			int additive = 1;
