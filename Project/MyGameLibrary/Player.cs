@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 namespace Fall2020_CSC403_Project.code {
   public class Player : BattleCharacter {
 
-    Inventory inventory;
-
     public Player(Vector2 initPos, Collider collider) : base(initPos, collider) {
       AttackEvent += GainExperience;
-      this.inventory = new Inventory();
     }
 
     private void GainExperience(string skillType, int damage)
@@ -23,11 +20,6 @@ namespace Fall2020_CSC403_Project.code {
       // Globally increment health exp
       int hpexp = damage;
       Skills[Defs.SKILL_HP].AddExperience(hpexp);
-    }
-
-    // Enable the player to use an item from the inventory
-    public void useItemFromInventory(Item item){
-
     }
     }
 }

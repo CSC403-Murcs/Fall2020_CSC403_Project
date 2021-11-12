@@ -56,7 +56,6 @@
     <Compile Include="Vector2.cs" />
     <Compile Include="Skill.cs" />
     <Compile Include="Defs.cs" />
-    <Compile Include="Inventory.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Respawner.cs" />
   </ItemGroup>

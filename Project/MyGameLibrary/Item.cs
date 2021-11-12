@@ -10,19 +10,11 @@ namespace Fall2020_CSC403_Project.code
 
 		public Image Img { get; set; }
 
-		private string type = null;
+		public string Type {get; set; }
 
-		public Item(string type)
+		public Item(string Type)
 		{
-			this.type = type;
-		}
-
-		public string getType() {
-			return this.type;
-		}
-
-		public void setType(string type) {
-			this.type = type;
+			this.Type = Type;
 		}
 	}
 }

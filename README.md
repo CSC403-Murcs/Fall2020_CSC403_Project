@@ -15,6 +15,9 @@
 **Boss Fight**
 - After winning a certain amount of battles, you get to fight a boss to lock in your final time.
 
+**Inventory**
+- Mr. Peanut has the ability to pick up loot from enemies he has fought against. The inventory allows Mr. Peanut to pick up three items that can increase health, melee damage, and magic damage.
+
 **Skills**
 - Mr. Peanut has different skills which he can train to a higher level (Melee/Ranged/Magic).
 - Higher levels equate to more damage dealt by a certain skill.
@@ -32,7 +35,7 @@
 - k - Crouch
 - j - Uncrouch
 
-## Building
+## How to start?
 
 1. Clone.
 2. Open .sln in Visual Studio 2019+.
@@ -49,36 +52,64 @@
 Forms and resources.
 
 **FrmBattle.cs**
-- methods
-  - btnAttack_Click - *added* increases playerScore by 1 if enemy is defeated.
+- Class FrmBattle
+  - Method
+    - btnAttack_Click - *added* increases playerScore by 1 if enemy is defeated.
 
 **FrmInventory.cs**
+- Class FrmInventory
+  - Properties
+    - SelectedItem - The item the player has selected from the inventory.
+    - Player - The instance of the player who opened the inventory.
+  - Methods
+    - button1Cclick - Equips the item selected by the user and upgrades one of the stats based on the selected item.
+    - health_Click - Selects the health item in the inventory.
+    - magic_Click - Selects the magic item in the inventory.
+    - melee_Click - Selects the melee item in the inventory.
+    - AddLoot - Adds the loot to the inventory.
+    - OnFormClosing - Overwrites the original OnFormClosing methods and prevents it from closing the inventory
 
 **FrmLevel.cs**
-- methods 
-  - tmrDisplayBoss_Tick - Checks every game tick if player reached score for boss to appear. if player wins, passes the final time to the VictoryScreen Form. If player loses then displays GameOver Form.
-  - inGameScore_update_Tick - displays and updates player's current score.
-- Properties
-  - spawn - Boolean to see if boss is spawned
-  - once - Boolean to only spawn boss once
-  - fTime - Calculates final time
-  
+- Class FrmLevel
+  - Properties
+    - FrmInventory - The player's inventory
+    - close - Boolean for checking if the user has opened the inventory
+    - spawn - Boolean to see if boss is spawned
+    - once - Boolean to only spawn boss once
+    - fTime - Calculates final time
+  - Method
+    - Open - Opens the inventory for the player
+    - CheetoLoot_Click - Adds the health item to the inventory
+    - KoolLoot_Click - Adds the melee item to the inventory
+    - FinalBossLoot_Click - Adds the magic item to the inventory
+    - health_update_Tick - Displays the health of the player
+    - melee_update_Tick - Displays the melee damage of the player
+    - ranged_update_Tick - Displays the ranged damage of the player
+    - magic_update_Tick - Displays the magic damage of the player 
+    - tmrDisplayBoss_Tick - Checks every game tick if player reached score for boss to appear. if player wins, passes the final time to the VictoryScreen Form. If player loses then displays GameOver Form.
+    - inGameScore_update_Tick - displays and updates player's current score.
+
 **GameInstructions.cs**
-- methods
-  - Confirm_click - Closes GameInstructions Form upon pressing button.
+- Class GameInstructions
+  - Method
+    - Confirm_click - Closes GameInstructions Form upon pressing button.\
+  
 **GameOver.cs**
-- methods
-  - gameOver_click - Closes all forms upon pressing Quit Game button.
+- Class GameOver
+  - Method
+    - gameOver_click - Closes all forms upon pressing Quit Game button.
+  
 **IntroAnnimation.cs**
 
 **WelcomeScreen.cs**
 
 **VictoryScreen.cs**
-- methods
-  - displayTime_Tick - Retrieves the final time spent on the FrmLevel and displays it on VictoryScreen Form.
-  - gameQuit_Click - When the gameQuit button is clicked it closes all Forms.
-- properties
-  t - TimeSpan variable that is set to the final time.
+- Class VictoryScreen
+  - Properties
+    - t - TimeSpan variable that is set to the final time.
+  - Method
+    - displayTime_Tick - Retrieves the final time spent on the FrmLevel and displays it on VictoryScreen Form.
+    - gameQuit_Click - When the gameQuit button is clicked it closes all Forms.
 
 ### MyGameLibrary
 Library of character and item information.
@@ -103,13 +134,15 @@ Library of character and item information.
     - Die - Virtual; Death mechanics.
 
 **Character.cs**
-- Properties
-  - playerScore - Keeps track of score points earned after defeating a enemy.
+- Class Character
+  - Properties
+    - playerScore - Keeps track of score points earned after defeating a enemy.
 
 **Collider.cs**
-- Methods
-  - noticeRadius - Get collider position's notice radius.
-  - notices - Detects if this collider position notices a player.
+- Class Collider
+  - Methods
+    - noticeRadius - Get collider position's notice radius.
+    - notices - Detects if this collider position notices a player.
 
 **Defs.cs**
 - Enums
@@ -141,11 +174,13 @@ Library of character and item information.
 **Game.cs**
 - *No new methods or properties added*
 
-**Inventory.cs**
-- TODO; Parsa
-
 **Item.cs**
-- TODO; Parsa
+- class Item
+  - Properties 
+    - Img - The image of the item
+    - Type - Type of the item
+  - Methods
+    - Item - Initializes the item
 
 **NPC.cs**
 - *No new methods or properties added*
@@ -153,7 +188,6 @@ Library of character and item information.
 **Player.cs**
 - class Player
   - Properties
-    - inventory - Player inventory object.
     - noticeThreshold - Player notice threshold.
   - Methods
     - addItemToInventory - Add an item to the player's inventory.

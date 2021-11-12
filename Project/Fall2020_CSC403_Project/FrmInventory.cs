@@ -17,7 +17,6 @@ namespace Fall2020_CSC403_Project
 
         public static FrmInventory instance = null;
         public Item selectedItem;
-        public Item pickedItem = new Item("Health");
         private Player player;
 
         public FrmInventory(Player player)
@@ -35,7 +34,7 @@ namespace Fall2020_CSC403_Project
         // Equip button
         private void button1_Click(object sender, EventArgs e)
         {
-            string itemType = selectedItem.getType();
+            string itemType = selectedItem.Type;
             Skill skill = player.Skills[itemType];
 
             switch (itemType) {
