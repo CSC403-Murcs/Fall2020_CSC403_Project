@@ -13,8 +13,6 @@ namespace Fall2020_CSC403_Project.code
 {
 	public class BattleCharacter : Character
 	{
-
-		int PlayerHealth = 0;
 		// Walk over the health skill to keep everyone sane
 		// This way we can use the same code that's provide but wrap over the health skill
 		public int Health
@@ -41,10 +39,6 @@ namespace Fall2020_CSC403_Project.code
 		}
 
 		public Dictionary<string, Skill> Skills { get; private set; }
-
-		// ???? wtf is this?
-		// This is the variable for dynamically be applied to the health of the enemy or player
-		// dumb as shit
 		public event Action<string, int> AttackEvent;
 
 		// Combat level is the highest skill level + a calculated max health bonus
@@ -66,7 +60,6 @@ namespace Fall2020_CSC403_Project.code
 
 			// Default health to 20, will be changed later
 			SetMaxHealth(20);
-			this.PlayerHealth = 20;
 		}
 
 		public void OnAttack(string skillType)
@@ -119,10 +112,6 @@ namespace Fall2020_CSC403_Project.code
 		public void SetMaxHealth(int amount)
 		{
 			MaxHealth = amount;
-		}
-
-		public int GetHealth(){
-			return Health;
 		}
 
 		private void AddSkill(Skill skill)

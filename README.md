@@ -15,6 +15,9 @@
 **Boss Fight**
 - After winning a certain amount of battles, you get to fight a boss to lock in your high score.
 
+**Inventory**
+- Mr. Peanut has the ability to pick up loot from enemies he has fought against. The inventory allows Mr. Peanut to pick up three items that can increase health, melee damage, and magic damage.
+
 **Skills**
 - Mr. Peanut has different skills which he can train to a higher level (Melee/Ranged/Magic).
 - Higher levels equate to more damage dealt by a certain skill.
@@ -32,7 +35,7 @@
 - k - Crouch
 - j - Uncrouch
 
-## Building
+## How to start?
 
 1. Clone.
 2. Open .sln in Visual Studio 2019+.
@@ -51,8 +54,32 @@ Forms and resources.
 **FrmBattle.cs**
 
 **FrmInventory.cs**
+- Class FrmInventory
+  - Properties
+    - SelectedItem - The item the player has selected from the inventory.
+    - Player - The instance of the player who opened the inventory.
+  - Methods
+    - button1Cclick - Equips the item selected by the user and upgrades one of the stats based on the selected item.
+    - health_Click - Selects the health item in the inventory.
+    - magic_Click - Selects the magic item in the inventory.
+    - melee_Click - Selects the melee item in the inventory.
+    - AddLoot - Adds the loot to the inventory.
+    - OnFormClosing - Overwrites the original OnFormClosing methods and prevents it from closing the inventory
 
 **FrmLevel.cs**
+- Class FrmLevel
+  - Properties
+    - FrmInventory - The player's inventory
+    - close - Boolean for checking if the user has opened the inventory
+  - Method
+    - Open - Opens the inventory for the player
+    - CheetoLoot_Click - Adds the health item to the inventory
+    - KoolLoot_Click - Adds the melee item to the inventory
+    - FinalBossLoot_Click - Adds the magic item to the inventory
+    - health_update_Tick - Displays the health of the player
+    - melee_update_Tick - Displays the melee damage of the player
+    - ranged_update_Tick - Displays the ranged damage of the player
+    - magic_update_Tick - Displays the magic damage of the player 
 
 **GameInstructions.cs**
 
@@ -122,11 +149,13 @@ Library of character and item information.
 **Game.cs**
 - *No new methods or properties added*
 
-**Inventory.cs**
-- TODO; Parsa
-
 **Item.cs**
-- TODO; Parsa
+- class Item
+  - Properties 
+    - Img - The image of the item
+    - Type - Type of the item
+  - Methods
+    - Item - Initializes the item
 
 **NPC.cs**
 - *No new methods or properties added*
@@ -134,7 +163,6 @@ Library of character and item information.
 **Player.cs**
 - class Player
   - Properties
-    - inventory - Player inventory object.
     - noticeThreshold - Player notice threshold.
   - Methods
     - addItemToInventory - Add an item to the player's inventory.
