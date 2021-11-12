@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code {
   public class Character {
-    private const int GO_INC = 3;
-        public int playerScore = 0;
+    public int noticeThreshold = 13;
+    public int GO_INC = 3;
+    public int playerScore = 0;
 
-    public Vector2 MoveSpeed { get; private set; }
+    public Vector2 MoveSpeed { get; set; }
     public Vector2 LastPosition { get; private set; }
     public Vector2 Position { get; private set; }
     public Collider Collider { get; private set; }
@@ -45,6 +46,18 @@ namespace Fall2020_CSC403_Project.code {
 
     public void ResetMoveSpeed() {
       MoveSpeed = new Vector2(0, 0);
+    }
+    public void sneak(bool snek)
+    {
+        noticeThreshold = 17;
+        if (!snek) { 
+          this.GO_INC /= 2;   
+        }
+    }
+    public void standUp(bool snek) { 
+        if (snek) { 
+          this.GO_INC *= 2;
+        }    
     }
   }
 }

@@ -8,26 +8,10 @@ namespace Fall2020_CSC403_Project.code {
   public class Player : BattleCharacter {
 
     Inventory inventory;
-    public int noticeThreshold = 13;
 
     public Player(Vector2 initPos, Collider collider) : base(initPos, collider) {
       AttackEvent += GainExperience;
       this.inventory = new Inventory();
-    }
-
-    // Enable the player to add items to the inventory
-    public void addItemToInventory(Item item){
-      inventory.addItem(item);
-    }
-    
-    // Enable the player to remove an item from the inventory
-    public void removeItemFromInventory(Item item){
-      
-    }
-
-    public override int EquipmentBonus(Skill skill)
-    {
-      return 0;
     }
 
     private void GainExperience(string skillType, int damage)
@@ -45,10 +29,5 @@ namespace Fall2020_CSC403_Project.code {
     public void useItemFromInventory(Item item){
 
     }
-
-    public void sneak() { 
-        noticeThreshold = 17;
     }
-
-  }
 }

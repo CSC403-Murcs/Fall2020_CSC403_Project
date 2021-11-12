@@ -43,18 +43,20 @@
             // Equip
             // 
             this.Equip.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Equip.Font = new System.Drawing.Font("Impact", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Equip.ForeColor = System.Drawing.Color.Red;
             this.Equip.Location = new System.Drawing.Point(475, 598);
             this.Equip.Name = "Equip";
             this.Equip.Size = new System.Drawing.Size(245, 91);
             this.Equip.TabIndex = 0;
-            this.Equip.Text = "Equip";
+            this.Equip.Text = "USE";
             this.Equip.UseVisualStyleBackColor = false;
             this.Equip.Click += new System.EventHandler(this.button1_Click);
             // 
             // Health
             // 
             this.Health.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Health.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Health.Location = new System.Drawing.Point(145, 104);
             this.Health.Name = "Health";
             this.Health.Size = new System.Drawing.Size(181, 157);
@@ -65,6 +67,7 @@
             // Intelligence
             // 
             this.Intelligence.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Intelligence.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Intelligence.Location = new System.Drawing.Point(896, 104);
             this.Intelligence.Name = "Intelligence";
             this.Intelligence.Size = new System.Drawing.Size(181, 157);
@@ -75,6 +78,7 @@
             // Power
             // 
             this.Power.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Power.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Power.Location = new System.Drawing.Point(501, 104);
             this.Power.Name = "Power";
             this.Power.Size = new System.Drawing.Size(181, 157);
@@ -84,6 +88,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(919, 267);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(143, 31);
@@ -92,6 +97,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(529, 267);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(128, 31);
@@ -100,6 +106,7 @@
             // 
             // textBox3
             // 
+            this.textBox3.Enabled = false;
             this.textBox3.Location = new System.Drawing.Point(171, 267);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(123, 31);

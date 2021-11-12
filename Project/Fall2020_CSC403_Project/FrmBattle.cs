@@ -29,6 +29,11 @@ namespace Fall2020_CSC403_Project
 			picBossBattle.Visible = false;
 
 			// Observer pattern
+			if (!enemy.Collider.notices(player))
+			{
+				player.AttackEvent += EnemyDamage;
+				player.noticeThreshold = 20;
+			}
 			enemy.AttackEvent += PlayerDamage;
 			player.AttackEvent += EnemyDamage;
 
@@ -53,12 +58,9 @@ namespace Fall2020_CSC403_Project
 		// instantiating the battle ground for the boss fights
 		public static FrmBattle GetInstance(Enemy enemy)
 		{
-			if (instance == null)
-			{
-				instance = new FrmBattle();
-				instance.enemy = enemy;
-				instance.Setup();
-			}
+			instance = new FrmBattle();
+			instance.enemy = enemy;
+			instance.Setup();
 			return instance;
 		}
 
@@ -74,11 +76,6 @@ namespace Fall2020_CSC403_Project
 
 			lblPlayerHealthFull.Text = player.Health.ToString();
 			lblEnemyHealthFull.Text = enemy.Health.ToString();
-		}
-
-		private void btnUseItem_Click(object sender, EventArgs e)
-		{
-			// TODO; Parsa
 		}
 
 		private void btnAttack_ClickMelee(object sender, EventArgs e)

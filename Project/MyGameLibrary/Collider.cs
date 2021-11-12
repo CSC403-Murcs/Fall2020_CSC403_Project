@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 namespace Fall2020_CSC403_Project.code {
   public class Collider {
     private Rectangle rect;
-
     public Collider(Rectangle rect) {
       this.rect = rect;
     }
@@ -22,7 +21,7 @@ namespace Fall2020_CSC403_Project.code {
       return rect.IntersectsWith(c.rect);
     }
     public double noticeRadius() { 
-      double radius = Math.Sqrt(rect.X * rect.X + rect.Y * rect.Y);
+      double radius = 1;
       return radius;
     }
 
