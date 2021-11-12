@@ -303,7 +303,7 @@ namespace Fall2020_CSC403_Project {
 
         public void tmrDisplayBoss_Tick(object sender, EventArgs e)
         {
-            if((player.playerScore == 2) && (spawn == false))
+            if((player.playerScore == 5) && (spawn == false))
             {
                 spawn = true;
                 respawners[3].Respawn(Game.player);
