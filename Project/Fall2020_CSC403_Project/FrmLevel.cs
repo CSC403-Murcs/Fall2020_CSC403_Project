@@ -272,6 +272,7 @@ namespace Fall2020_CSC403_Project {
             InGameRanged.Text = "Ranged: " + player.AttackStrength(Defs.AttackTypeToString(AttackType.ATTACK_TYPE_RANGED)).ToString();
         }
 
+        // Some comment
         private void magic_update_Tick_1(object sender, EventArgs e)
         {
             InGameMagic.Text = "Magic: " + player.AttackStrength(Defs.AttackTypeToString(AttackType.ATTACK_TYPE_MAGIC)).ToString();
