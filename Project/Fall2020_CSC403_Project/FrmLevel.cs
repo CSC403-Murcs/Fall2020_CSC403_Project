@@ -153,11 +153,6 @@ namespace Fall2020_CSC403_Project {
       // Initialize an instance of the battleground with the enemy you got close with
       frmBattle = FrmBattle.GetInstance(enemy);
 
-      // Showing that loot drops after enemy dies
-      // if enemy health is zero
-      // enemy drops loot -> enemy.dropLoot() -> random item 
-      // show the item on the ground
-
       frmBattle.Show();
       // there's something wrong with this if statement
       if (enemy.Health != 0) {
