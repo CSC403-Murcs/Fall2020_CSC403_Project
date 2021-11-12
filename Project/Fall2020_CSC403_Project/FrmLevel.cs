@@ -219,10 +219,6 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
-
-    }
-
     private void Open(Player player)
     {
         // FIX: User should be able to open the inventory as many times as possible
@@ -238,7 +234,7 @@ namespace Fall2020_CSC403_Project {
             CheetoLoot.Visible = false;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void KoolLoot_Click(object sender, EventArgs e)
         {
             frmInventory.AddLoot(KoolLoot.BackgroundImage, "Melee");
             KoolLoot.Visible = false;

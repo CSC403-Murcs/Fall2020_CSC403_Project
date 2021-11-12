@@ -70,7 +70,7 @@ namespace Fall2020_CSC403_Project
 
         // Health Item
         // FIX: Turn the next three functions into one function
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void health_Click(object sender, EventArgs e)
         {
 
             // Decalring what item the user selects
@@ -78,7 +78,7 @@ namespace Fall2020_CSC403_Project
         }
 
         // Magic Item
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void magic_Click(object sender, EventArgs e)
         {
 
             // Decalring what item the user selects
@@ -86,7 +86,7 @@ namespace Fall2020_CSC403_Project
         }
 
         // Melee Item
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void melee_Click(object sender, EventArgs e)
         {
 
             // Decalring what item the user selects
