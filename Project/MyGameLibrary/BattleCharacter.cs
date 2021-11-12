@@ -163,12 +163,6 @@ namespace Fall2020_CSC403_Project.code
 			Skills[skill].SetLevel(level);
 		}
 
-		// To be overridden by the Player class
-		public virtual int EquipmentBonus(Skill skill)
-		{
-			return 0;
-		}
-
 		// To be overridden by the Enemy class
 		public virtual void Die()
 		{

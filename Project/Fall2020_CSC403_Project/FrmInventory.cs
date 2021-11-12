@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fall2020_CSC403_Project.code;
+using System.Collections;
 
 namespace Fall2020_CSC403_Project
 {
@@ -15,7 +16,7 @@ namespace Fall2020_CSC403_Project
     {
 
         public static FrmInventory instance = null;
-        public Item selectedItem = new Item("Health");
+        public Item selectedItem;
         public Item pickedItem = new Item("Health");
         private Player player;
 
@@ -27,11 +28,7 @@ namespace Fall2020_CSC403_Project
 
         public static FrmInventory GetInstance(Player player)
         {
-            
-            if (instance == null)
-            {
-                instance = new FrmInventory(player);
-            }
+            instance = new FrmInventory(player);
             return instance;
         }
 
@@ -47,7 +44,8 @@ namespace Fall2020_CSC403_Project
                     if (Health.BackColor == Color.Green)
                     {
                         player.AlterHealth(3);
-                        Health.BackColor = Color.Red;
+                        Health.BackColor = Color.FromArgb(153, 180, 209);
+                        Health.BackgroundImage = null;
                     }
                     break;
                 case "Melee":
@@ -55,7 +53,8 @@ namespace Fall2020_CSC403_Project
                     if (Power.BackColor == Color.Green)
                     {
                         skill.Bonus += 2;
-                        Power.BackColor = Color.Red;
+                        Power.BackColor = Color.FromArgb(153, 180, 209);
+                        Power.BackgroundImage = null;
                     }
                     break;
                 case "Magic":
@@ -63,7 +62,8 @@ namespace Fall2020_CSC403_Project
                     if (Intelligence.BackColor == Color.Green)
                     {
                         skill.Bonus += 4;
-                        Intelligence.BackColor = Color.Red;
+                        Intelligence.BackColor = Color.FromArgb(153, 180, 209);
+                        Intelligence.BackgroundImage = null;
                     }
                     break;
             }
@@ -75,23 +75,23 @@ namespace Fall2020_CSC403_Project
         {
 
             // Decalring what item the user selects
-            this.selectedItem.setType("Health");
+            this.selectedItem = new Item("Health");
         }
 
-        // Power Item
+        // Magic Item
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
             // Decalring what item the user selects
-            this.selectedItem.setType("Melee");
+            this.selectedItem = new Item("Magic");
         }
 
-        // Intelligence Item
+        // Melee Item
         private void pictureBox3_Click(object sender, EventArgs e)
         {
 
             // Decalring what item the user selects
-            this.selectedItem.setType("Magic");
+            this.selectedItem = new Item("Melee");
         }
 
         public void AddLoot(Image loot, string type){
@@ -111,6 +111,11 @@ namespace Fall2020_CSC403_Project
                 Intelligence.BackColor = Color.Green;
                 Intelligence.Refresh();
             }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            e.Cancel = true;
         }
     }
 }
