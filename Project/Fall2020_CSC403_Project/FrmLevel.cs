@@ -6,6 +6,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Media;
+using System.Collections;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
@@ -26,6 +27,7 @@ namespace Fall2020_CSC403_Project {
     public IntroAnnimation Anim;
     public TimeSpan fTime;
     private bool sneaking = false;
+    private bool close = true;
 
     public FrmLevel() {
       InitializeComponent();
@@ -34,6 +36,7 @@ namespace Fall2020_CSC403_Project {
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
       const int NUM_WALLS = 15;
+
 
       // For creating new UI elements, initialize a picturebox in designer 
       // create padding for it using the createcollider function in this file
@@ -157,8 +160,7 @@ namespace Fall2020_CSC403_Project {
 
       frmBattle.Show();
       // there's something wrong with this if statement
-
-      if (enemy.GetHealth() != 0) {
+      if (enemy.Health != 0) {
         Color color = enemy.Color;
         if(color == Color.Red){
             FinalBossLoot.Visible = true;
@@ -198,7 +200,10 @@ namespace Fall2020_CSC403_Project {
           break;
         
         case Keys.I:
-          Open(player);
+            if (this.close) {
+                Open(player);
+                this.close = false;
+            }
           break;
 
         // If the player hits E when they are close to loot
@@ -225,9 +230,6 @@ namespace Fall2020_CSC403_Project {
 
     private void Open(Player player)
     {
-        // Initialize an instance of the battleground with the enemy you got close with
-        this.frmInventory = FrmInventory.GetInstance(player);
-
         // FIX: User should be able to open the inventory as many times as possible
         this.frmInventory.Show();
     }
