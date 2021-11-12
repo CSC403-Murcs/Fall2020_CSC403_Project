@@ -100,8 +100,33 @@ Forms and resources.
     - gameOver_click - Closes all forms upon pressing Quit Game button.
   
 **IntroAnnimation.cs**
+- class IntroAnnimation
+	- Properties
+		- SoundPlayer - IntroAnnimation music
+	- Methods
+		- timer1_tick - Increases progressbar of increments of 2
+		- IntroAnnimation_Load - Begins timer for progress bar
+		- OnFormClosed - Stops intro annimation music
 
 **WelcomeScreen.cs**
+- class WelcomeScreen
+	- Properties
+		- mysound - variable containg .wav file for epic music
+		- opened - bool to check if form is closed or not
+		- Anim - IntroAnnimation form
+		- lb - Leaderboard form
+	- Methods
+		- WelcomeScreen_Load - Plays epic music
+		- leaderboardButton_Click - Opens the leaderboard form
+		- playButton_Click - Opens GameInstructions and game
+		- quitButton_Click - Quits application
+		- OnFormClosed - Closes all the forms
+
+**Leaderboard.cs**
+- class Leaderboard
+	- Methods
+		- Leaderboard_Load - Finds the top 3 scores in the score.txt file
+		- back_Click - Returns to WelcomeScreen
 
 **VictoryScreen.cs**
 - Class VictoryScreen
