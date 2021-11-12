@@ -45,8 +45,6 @@ namespace Fall2020_CSC403_Project.code
 		// dumb as shit
 		public event Action<string, int> AttackEvent;
 
-		public Image CombatImage { get; protected set; }
-
 		// Combat level is the highest skill level + a calculated max health bonus
 		public int CombatLevel
 		{

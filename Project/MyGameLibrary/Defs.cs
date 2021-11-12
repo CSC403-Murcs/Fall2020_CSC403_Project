@@ -42,28 +42,6 @@ namespace Fall2020_CSC403_Project.code
 			}
 		}
 
-		public const string IMG_PLAYER = "";
-		public const string IMG_MELEE = "../Fall2020_CSC403_Project/data/melee.png";
-		public const string IMG_RANGED = "../Fall2020_CSC403_Project/data/ranged.png";
-		public const string IMG_MAGIC = "../Fall2020_CSC403_Project/data/magic.png";
-
-		public static string EnemyTypeToImg(EnemyType t)
-		{
-			switch (t)
-			{
-				case EnemyType.ENEMY_TYPE_NONE:
-					return "";
-				case EnemyType.ENEMY_TYPE_MELEE:
-					return IMG_MELEE;
-				case EnemyType.ENEMY_TYPE_RANGED:
-					return IMG_RANGED;
-				case EnemyType.ENEMY_TYPE_MAGIC:
-					return IMG_MAGIC;
-				default:
-					return "";
-			}
-		}
-
 		public const double RESPAWN_TIME = 10.0;
 	}
 
