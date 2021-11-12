@@ -18,7 +18,7 @@ namespace Fall2020_CSC403_Project
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void gameOver_click(object sender, EventArgs e)
         {
             Hide();
             Anim.Close();

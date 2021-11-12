@@ -17,7 +17,7 @@ namespace Fall2020_CSC403_Project
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Confirm_click(object sender, EventArgs e)
         {
             Close();
         }

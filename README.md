@@ -7,13 +7,13 @@
 - The welcome screen displays gif animations and plays music.
 
 **Leaderboard**
-- High scores are kept on a leaderboard which can be displayed from the welcome screen.
+- Fastest times are kept on a leaderboard which can be displayed from the welcome screen.
 
 **Respawning**
-- After defeating an enemy it will respaw, stronger than before.
+- After defeating an enemy it will respawn, stronger than before.
 
 **Boss Fight**
-- After winning a certain amount of battles, you get to fight a boss to lock in your high score.
+- After winning a certain amount of battles, you get to fight a boss to lock in your final time.
 
 **Inventory**
 - Mr. Peanut has the ability to pick up loot from enemies he has fought against. The inventory allows Mr. Peanut to pick up three items that can increase health, melee damage, and magic damage.
@@ -44,7 +44,7 @@
 5. All resources will be packed into the .exe for portability.
 
 ## Known Bugs
-None
+- If the player stands where the enemy dies and the enemy respawns, The FrmBattle.cs Form continously opens.
 
 ## File Structure
 
@@ -52,6 +52,9 @@ None
 Forms and resources.
 
 **FrmBattle.cs**
+- Class FrmBattle
+  - Method
+    - btnAttack_Click - *added* increases playerScore by 1 if enemy is defeated.
 
 **FrmInventory.cs**
 - Class FrmInventory
@@ -71,6 +74,9 @@ Forms and resources.
   - Properties
     - FrmInventory - The player's inventory
     - close - Boolean for checking if the user has opened the inventory
+    - spawn - Boolean to see if boss is spawned
+    - once - Boolean to only spawn boss once
+    - fTime - Calculates final time
   - Method
     - Open - Opens the inventory for the player
     - CheetoLoot_Click - Adds the health item to the inventory
@@ -80,14 +86,30 @@ Forms and resources.
     - melee_update_Tick - Displays the melee damage of the player
     - ranged_update_Tick - Displays the ranged damage of the player
     - magic_update_Tick - Displays the magic damage of the player 
+    - tmrDisplayBoss_Tick - Checks every game tick if player reached score for boss to appear. if player wins, passes the final time to the VictoryScreen Form. If player loses then displays GameOver Form.
+    - inGameScore_update_Tick - displays and updates player's current score.
 
 **GameInstructions.cs**
-
+- Class GameInstructions
+  - Method
+    - Confirm_click - Closes GameInstructions Form upon pressing button.\
+  
 **GameOver.cs**
-
+- Class GameOver
+  - Method
+    - gameOver_click - Closes all forms upon pressing Quit Game button.
+  
 **IntroAnnimation.cs**
 
 **WelcomeScreen.cs**
+
+**VictoryScreen.cs**
+- Class VictoryScreen
+  - Properties
+    - t - TimeSpan variable that is set to the final time.
+  - Method
+    - displayTime_Tick - Retrieves the final time spent on the FrmLevel and displays it on VictoryScreen Form.
+    - gameQuit_Click - When the gameQuit button is clicked it closes all Forms.
 
 ### MyGameLibrary
 Library of character and item information.
@@ -112,12 +134,15 @@ Library of character and item information.
     - Die - Virtual; Death mechanics.
 
 **Character.cs**
-- *No new methods or properties added*
+- Class Character
+  - Properties
+    - playerScore - Keeps track of score points earned after defeating a enemy.
 
 **Collider.cs**
-- Methods
-  - noticeRadius - Get collider position's notice radius.
-  - notices - Detects if this collider position notices a player.
+- Class Collider
+  - Methods
+    - noticeRadius - Get collider position's notice radius.
+    - notices - Detects if this collider position notices a player.
 
 **Defs.cs**
 - Enums
