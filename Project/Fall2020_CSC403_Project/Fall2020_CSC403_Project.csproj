@@ -98,6 +98,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GameInstructions.resx">
       <DependentUpon>GameInstructions.cs</DependentUpon>

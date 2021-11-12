@@ -14,21 +14,6 @@ namespace Fall2020_CSC403_Project.code {
       this.inventory = new Inventory();
     }
 
-    // Enable the player to add items to the inventory
-    public void addItemToInventory(Item item){
-      inventory.addItem(item);
-    }
-    
-    // Enable the player to remove an item from the inventory
-    public void removeItemFromInventory(Item item){
-      
-    }
-
-    public override int EquipmentBonus(Skill skill)
-    {
-      return 0;
-    }
-
     private void GainExperience(string skillType, int damage)
     {
       // Gain experience depending on the type of skill used

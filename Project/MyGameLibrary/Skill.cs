@@ -10,6 +10,7 @@ namespace Fall2020_CSC403_Project.code
 		public int MaxLevel { get; private set; }
 		public int Experience { get; private set; }
 		public int MaxExperience { get; private set; }
+		public int Bonus { get; set; }
 
 		static int CalcExp(int level)
 		{
@@ -22,6 +23,7 @@ namespace Fall2020_CSC403_Project.code
 			CurrentLevel = 1;
 			MaxLevel = 99;
 			Experience = 0;
+			Bonus = 0;
 			MaxExperience = CalcExp(Level);
 		}
 
