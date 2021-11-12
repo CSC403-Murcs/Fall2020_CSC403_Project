@@ -6,7 +6,7 @@ namespace Fall2020_CSC403_Project.code
 {
 	public class Respawner
 	{
-		public long RespawnTime {get; private set;}
+		public long RespawnTime {get; set;}
 		public Vector2 Position;
 
 		public Enemy Enemy;

@@ -12,6 +12,7 @@ namespace Fall2020_CSC403_Project
 {
     public partial class GameOver : Form
     {
+        public IntroAnnimation Anim;
         public GameOver()
         {
             InitializeComponent();
@@ -20,9 +21,7 @@ namespace Fall2020_CSC403_Project
         private void button1_Click(object sender, EventArgs e)
         {
             Hide();
-            FrmLevel.ActiveForm.Close();
-            WelcomeScreen ws1 = new WelcomeScreen();
-            ws1.Show();
+            Anim.Close();
         }
     }
 }

@@ -55,7 +55,7 @@ namespace Fall2020_CSC403_Project
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(271, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "One point is awarded per battle victory. 10 points to win.";
+            this.label2.Text = "One point is awarded per battle victory. 5 points to win. A final boss will appear once a score of 5 is achieved. Win by beating the final boss Chester";
             // 
             // label3
             // 
