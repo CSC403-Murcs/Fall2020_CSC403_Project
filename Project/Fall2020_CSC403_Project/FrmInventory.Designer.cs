@@ -43,6 +43,7 @@
             // Equip
             // 
             this.Equip.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Equip.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Equip.Font = new System.Drawing.Font("Impact", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Equip.ForeColor = System.Drawing.Color.Red;
             this.Equip.Location = new System.Drawing.Point(248, 306);
@@ -58,6 +59,7 @@
             // 
             this.Health.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Health.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Health.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Health.Location = new System.Drawing.Point(72, 54);
             this.Health.Margin = new System.Windows.Forms.Padding(2);
             this.Health.Name = "Health";
@@ -70,6 +72,7 @@
             // 
             this.Intelligence.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Intelligence.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Intelligence.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Intelligence.Location = new System.Drawing.Point(448, 54);
             this.Intelligence.Margin = new System.Windows.Forms.Padding(2);
             this.Intelligence.Name = "Intelligence";
@@ -82,6 +85,7 @@
             // 
             this.Power.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Power.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Power.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Power.Location = new System.Drawing.Point(264, 54);
             this.Power.Margin = new System.Windows.Forms.Padding(2);
             this.Power.Name = "Power";
@@ -98,7 +102,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(74, 20);
             this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "Intelligence";
+            this.textBox1.Text = "Magic";
             // 
             // textBox2
             // 
@@ -108,7 +112,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(66, 20);
             this.textBox2.TabIndex = 5;
-            this.textBox2.Text = "Power";
+            this.textBox2.Text = "Melee";
             // 
             // textBox3
             // 
