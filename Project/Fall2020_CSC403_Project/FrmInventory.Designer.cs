@@ -45,7 +45,7 @@
             this.Equip.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Equip.Font = new System.Drawing.Font("Impact", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Equip.ForeColor = System.Drawing.Color.Red;
-            this.Equip.Location = new System.Drawing.Point(475, 598);
+            this.Equip.Location = new System.Drawing.Point(497, 588);
             this.Equip.Name = "Equip";
             this.Equip.Size = new System.Drawing.Size(245, 91);
             this.Equip.TabIndex = 0;
@@ -79,7 +79,7 @@
             // 
             this.Power.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Power.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Power.Location = new System.Drawing.Point(501, 104);
+            this.Power.Location = new System.Drawing.Point(529, 104);
             this.Power.Name = "Power";
             this.Power.Size = new System.Drawing.Size(181, 157);
             this.Power.TabIndex = 3;
@@ -98,7 +98,7 @@
             // textBox2
             // 
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(529, 267);
+            this.textBox2.Location = new System.Drawing.Point(553, 267);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(128, 31);
             this.textBox2.TabIndex = 5;
