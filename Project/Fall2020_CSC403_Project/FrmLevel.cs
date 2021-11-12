@@ -12,17 +12,19 @@ namespace Fall2020_CSC403_Project {
     private Player player;
 
     private Respawner[] respawners;
-
+//    private Enemy enemyChester;
 //    private Enemy enemyPoisonPacket;
 //    private Enemy bossKoolaid;
 //    private Enemy enemyCheeto;
     private Character[] walls;
-
+    private bool spawn = false;
+        private bool once = true;
     private DateTime timeBegin;
     private FrmBattle frmBattle;
     private FrmInventory frmInventory;
     public SoundPlayer backgroundsound;
         public IntroAnnimation Anim;
+        public TimeSpan fTime;
 
     public FrmLevel() {
       InitializeComponent();
@@ -36,16 +38,19 @@ namespace Fall2020_CSC403_Project {
       // create padding for it using the createcollider function in this file
       // make sure the position of the player is set to the picturebox
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-
-      respawners = new Respawner[3];
+      //enemyChester = new Enemy(CreatePosition(picChesterCheetah), CreateCollider(picChesterCheetah, PADDING));
+      respawners = new Respawner[4];
 			respawners[0] = new Respawner(picBossKoolAid, new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING), player));
 			respawners[1] = new Respawner(picEnemyPoisonPacket, new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING), player));
 			respawners[2] = new Respawner(picEnemyCheeto, new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING), player));
-
+            respawners[3] = new Respawner(picChesterCheetah, new Enemy(CreatePosition(picChesterCheetah), CreateCollider(picChesterCheetah, PADDING), player));
       respawners[0].SetColor(Color.Red);
       respawners[1].SetColor(Color.Green);
       respawners[2].SetColor(Color.FromArgb(255, 245, 161));
-
+      respawners[3].SetColor(Color.Blue);
+            respawners[3].PictureBox.Visible = false;
+            //keeps final boss from spawning until score condition is met
+            respawners[3].RespawnTime = DateTime.Now.AddDays(1).Ticks;
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
         PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
@@ -75,10 +80,12 @@ namespace Fall2020_CSC403_Project {
     }
 
     // keeps track of the time spent in the game
-    private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-      TimeSpan span = DateTime.Now - timeBegin;
-      string time = span.ToString(@"hh\:mm\:ss");
-      lblInGameTime.Text = "Time: " + time.ToString();
+    public void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
+      
+        TimeSpan span = DateTime.Now - timeBegin;
+        string time = span.ToString(@"hh\:mm\:ss");
+        lblInGameTime.Text = "Time: " + time.ToString();
+
     }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
@@ -95,6 +102,7 @@ namespace Fall2020_CSC403_Project {
       // Because you have to initialize a new character for each enemy,
       // , you have to pass each one separately to the functions
       // Singleton design pattern
+
       int idx = HitAChar(player, respawners);
       if (idx != -1) {
         Fight(respawners[idx].Enemy);
@@ -159,9 +167,9 @@ namespace Fall2020_CSC403_Project {
       }
     
       // KoolAid man
-      if (enemy == respawners[0].Enemy) {
-        frmBattle.SetupForBossBattle();
-      }
+      //if (enemy == respawners[0].Enemy) {
+        //frmBattle.SetupForBossBattle();
+      //}
     }
 
     // Registering the key you press
@@ -259,5 +267,32 @@ namespace Fall2020_CSC403_Project {
                 Anim.Close();
             }
       }
+
+        public void tmrDisplayBoss_Tick(object sender, EventArgs e)
+        {
+            if((player.playerScore == 2) && (spawn == false))
+            {
+                spawn = true;
+                respawners[3].Respawn(Game.player);
+            }
+
+            if ((spawn == true) && (respawners[3].Enemy.Health <= 0) && (once))
+            {
+                fTime = DateTime.Now - timeBegin;
+                once = false;
+                VictoryScreen vs = new VictoryScreen(fTime);
+                vs.Show();
+                vs.Anim = Anim;
+                Hide();
+            }
+            if((player.Health <= 0) && (once))
+            {
+                once = false;
+                GameOver go = new GameOver();
+                go.Show();
+                go.Anim = Anim;
+                Hide();
+            }
+        }
     }
 }
