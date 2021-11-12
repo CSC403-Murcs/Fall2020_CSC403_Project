@@ -33,7 +33,7 @@ namespace Fall2020_CSC403_Project
             this.Title = new System.Windows.Forms.Label();
             this.finalTime = new System.Windows.Forms.Label();
             this.displayTime = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.gameQuit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Title
@@ -63,20 +63,20 @@ namespace Fall2020_CSC403_Project
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(295, 242);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 35);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Quit Game";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.gameQuit.Location = new System.Drawing.Point(295, 242);
+            this.gameQuit.Name = "button1";
+            this.gameQuit.Size = new System.Drawing.Size(169, 35);
+            this.gameQuit.TabIndex = 2;
+            this.gameQuit.Text = "Quit Game";
+            this.gameQuit.UseVisualStyleBackColor = true;
+            this.gameQuit.Click += new System.EventHandler(this.button1_Click);
             // 
             // VictoryScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.gameQuit);
             this.Controls.Add(this.finalTime);
             this.Controls.Add(this.Title);
             this.Name = "VictoryScreen";
@@ -91,6 +91,6 @@ namespace Fall2020_CSC403_Project
         private System.Windows.Forms.Label Title;
         public System.Windows.Forms.Label finalTime;
         private System.Windows.Forms.Timer displayTime;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button gameQuit;
     }
 }

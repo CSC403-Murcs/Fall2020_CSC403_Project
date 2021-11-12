@@ -7,13 +7,13 @@
 - The welcome screen displays gif animations and plays music.
 
 **Leaderboard**
-- High scores are kept on a leaderboard which can be displayed from the welcome screen.
+- Fastest times are kept on a leaderboard which can be displayed from the welcome screen.
 
 **Respawning**
-- After defeating an enemy it will respaw, stronger than before.
+- After defeating an enemy it will respawn, stronger than before.
 
 **Boss Fight**
-- After winning a certain amount of battles, you get to fight a boss to lock in your high score.
+- After winning a certain amount of battles, you get to fight a boss to lock in your final time.
 
 **Skills**
 - Mr. Peanut has different skills which he can train to a higher level (Melee/Ranged/Magic).
@@ -41,7 +41,7 @@
 5. All resources will be packed into the .exe for portability.
 
 ## Known Bugs
-None
+- If the player stands where the enemy dies and the enemy respawns, The FrmBattle.cs Form continously opens.
 
 ## File Structure
 
@@ -49,18 +49,36 @@ None
 Forms and resources.
 
 **FrmBattle.cs**
+- methods
+  - btnAttack_Click - *added* increases playerScore by 1 if enemy is defeated.
 
 **FrmInventory.cs**
 
 **FrmLevel.cs**
-
+- methods 
+  - tmrDisplayBoss_Tick - Checks every game tick if player reached score for boss to appear. if player wins, passes the final time to the VictoryScreen Form. If player loses then displays GameOver Form.
+  - inGameScore_update_Tick - displays and updates player's current score.
+- Properties
+  - spawn - Boolean to see if boss is spawned
+  - once - Boolean to only spawn boss once
+  - fTime - Calculates final time
+  
 **GameInstructions.cs**
-
+- methods
+  - Confirm_click - Closes GameInstructions Form upon pressing button.
 **GameOver.cs**
-
+- methods
+  - gameOver_click - Closes all forms upon pressing Quit Game button.
 **IntroAnnimation.cs**
 
 **WelcomeScreen.cs**
+
+**VictoryScreen.cs**
+- methods
+  - displayTime_Tick - Retrieves the final time spent on the FrmLevel and displays it on VictoryScreen Form.
+  - gameQuit_Click - When the gameQuit button is clicked it closes all Forms.
+- properties
+  t - TimeSpan variable that is set to the final time.
 
 ### MyGameLibrary
 Library of character and item information.
@@ -85,7 +103,8 @@ Library of character and item information.
     - Die - Virtual; Death mechanics.
 
 **Character.cs**
-- *No new methods or properties added*
+- Properties
+  - playerScore - Keeps track of score points earned after defeating a enemy.
 
 **Collider.cs**
 - Methods
