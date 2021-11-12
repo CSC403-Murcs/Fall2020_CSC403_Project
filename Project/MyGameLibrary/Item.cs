@@ -10,7 +10,7 @@ namespace Fall2020_CSC403_Project.code
 
 		public Image Img { get; set; }
 
-		private string Type {get; set; }
+		public string Type {get; set; }
 
 		public Item(string Type)
 		{

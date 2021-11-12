@@ -34,7 +34,7 @@ namespace Fall2020_CSC403_Project
         // Equip button
         private void button1_Click(object sender, EventArgs e)
         {
-            string itemType = selectedItem.Type();
+            string itemType = selectedItem.Type;
             Skill skill = player.Skills[itemType];
 
             switch (itemType) {
