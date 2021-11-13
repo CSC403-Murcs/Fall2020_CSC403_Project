@@ -14,6 +14,7 @@ namespace Fall2020_CSC403_Project
 {
 	public partial class WelcomeScreen : Form
 	{
+		public int hardMode { get; set; }
 		SoundPlayer mysound;
 		bool opened;
 		public IntroAnnimation Anim;
@@ -29,19 +30,22 @@ namespace Fall2020_CSC403_Project
 		{
 
 		}
-		private void button1_Click(object sender, EventArgs e)
+		private void leaderboardButton_Quit(object sender, EventArgs e)
 		{
 
 		}
 
-		private void checkBox1_CheckedChanged(object sender, EventArgs e)
+		private void playButton_Click(object sender, EventArgs e)
 		{
-
-		}
-
-		private void button3_Click(object sender, EventArgs e)
-		{
-			FrmLevel frm = new FrmLevel();
+            if (checkBox1.Checked)
+            {
+				hardMode = 2;
+            }
+            else
+            {
+				hardMode = 1;
+            }
+			FrmLevel frm = new FrmLevel(hardMode);
 			frm.Show();
 			GameInstructions gi = new GameInstructions();
 			gi.Show();
@@ -49,12 +53,9 @@ namespace Fall2020_CSC403_Project
 			frm.Anim = Anim;
 			opened = true;
 			Close();
-			//Application.EnableVisualStyles();
-			//Application.SetCompatibleTextRenderingDefault(false);
-			//Application.Run(new FrmLevel());
 		}
 
-		private void button4_Click(object sender, EventArgs e)
+		private void quitButton_Click(object sender, EventArgs e)
 		{
 			System.Windows.Forms.Application.Exit();
 		}

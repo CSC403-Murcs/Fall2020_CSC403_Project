@@ -140,10 +140,10 @@ namespace Fall2020_CSC403_Project {
             this.picChesterCheetah.BackColor = System.Drawing.Color.Transparent;
             this.picChesterCheetah.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
             this.picChesterCheetah.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picChesterCheetah.Location = new System.Drawing.Point(530, 117);
+            this.picChesterCheetah.Location = new System.Drawing.Point(506, 98);
             this.picChesterCheetah.Margin = new System.Windows.Forms.Padding(2);
             this.picChesterCheetah.Name = "picChesterCheetah";
-            this.picChesterCheetah.Size = new System.Drawing.Size(60, 77);
+            this.picChesterCheetah.Size = new System.Drawing.Size(115, 155);
             this.picChesterCheetah.TabIndex = 23;
             this.picChesterCheetah.TabStop = false;
             this.picChesterCheetah.Visible = false;
