@@ -28,8 +28,10 @@ namespace Fall2020_CSC403_Project {
     public TimeSpan fTime;
     private bool sneaking = false;
     private bool close = true;
+    private int score;
 
-    public FrmLevel() {
+    public FrmLevel(int score) {
+            this.score = score;
       InitializeComponent();
     }
 
@@ -296,7 +298,8 @@ namespace Fall2020_CSC403_Project {
 
         public void tmrDisplayBoss_Tick(object sender, EventArgs e)
         {
-            if((player.playerScore == 5) && (spawn == false))
+            
+            if((player.playerScore == 5*score) && (spawn == false))
             {
                 spawn = true;
                 respawners[3].Respawn(Game.player);
